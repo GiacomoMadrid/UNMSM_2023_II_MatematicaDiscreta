@@ -49,6 +49,9 @@ public class frmInicio extends javax.swing.JFrame {
         btnCorcheteCerrado = new javax.swing.JButton();
         btnResolver = new javax.swing.JButton();
         lblCircuito = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtTabla = new javax.swing.JTextArea();
+        btnBorrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -62,8 +65,9 @@ public class frmInicio extends javax.swing.JFrame {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         btnA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnA.setForeground(new java.awt.Color(0, 0, 102));
         btnA.setText("a");
-        btnA.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnA.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnA.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAActionPerformed(evt);
@@ -71,8 +75,9 @@ public class frmInicio extends javax.swing.JFrame {
         });
 
         btnB.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnB.setForeground(new java.awt.Color(0, 0, 102));
         btnB.setText("b");
-        btnB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnB.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBActionPerformed(evt);
@@ -80,8 +85,9 @@ public class frmInicio extends javax.swing.JFrame {
         });
 
         btnC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnC.setForeground(new java.awt.Color(0, 0, 102));
         btnC.setText("c");
-        btnC.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnC.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCActionPerformed(evt);
@@ -89,8 +95,9 @@ public class frmInicio extends javax.swing.JFrame {
         });
 
         btnD.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnD.setForeground(new java.awt.Color(0, 0, 102));
         btnD.setText("d");
-        btnD.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnD.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDActionPerformed(evt);
@@ -108,8 +115,9 @@ public class frmInicio extends javax.swing.JFrame {
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         btnNot.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnNot.setForeground(new java.awt.Color(0, 0, 102));
         btnNot.setText("not");
-        btnNot.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNot.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnNot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNotActionPerformed(evt);
@@ -117,17 +125,19 @@ public class frmInicio extends javax.swing.JFrame {
         });
 
         btnAnd.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnAnd.setForeground(new java.awt.Color(0, 0, 102));
         btnAnd.setText("and");
-        btnAnd.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnAnd.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAnd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAndActionPerformed(evt);
             }
         });
 
-        btnNand.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnNand.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnNand.setForeground(new java.awt.Color(0, 0, 102));
         btnNand.setText("nand");
-        btnNand.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNand.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnNand.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNandActionPerformed(evt);
@@ -135,8 +145,9 @@ public class frmInicio extends javax.swing.JFrame {
         });
 
         btnNor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnNor.setForeground(new java.awt.Color(0, 0, 102));
         btnNor.setText("nor");
-        btnNor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnNor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnNor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNorActionPerformed(evt);
@@ -144,8 +155,9 @@ public class frmInicio extends javax.swing.JFrame {
         });
 
         btnOr.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnOr.setForeground(new java.awt.Color(0, 0, 102));
         btnOr.setText("or");
-        btnOr.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnOr.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnOr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOrActionPerformed(evt);
@@ -153,17 +165,19 @@ public class frmInicio extends javax.swing.JFrame {
         });
 
         btnXor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnXor.setForeground(new java.awt.Color(0, 0, 102));
         btnXor.setText("xor");
-        btnXor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnXor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXorActionPerformed(evt);
             }
         });
 
-        btnXnor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnXnor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnXnor.setForeground(new java.awt.Color(0, 0, 102));
         btnXnor.setText("xnor");
-        btnXnor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnXnor.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnXnor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXnorActionPerformed(evt);
@@ -176,8 +190,9 @@ public class frmInicio extends javax.swing.JFrame {
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         btnParentesisCerrado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnParentesisCerrado.setForeground(new java.awt.Color(0, 0, 102));
         btnParentesisCerrado.setText(")");
-        btnParentesisCerrado.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnParentesisCerrado.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnParentesisCerrado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnParentesisCerradoActionPerformed(evt);
@@ -185,8 +200,9 @@ public class frmInicio extends javax.swing.JFrame {
         });
 
         btnParentesisAbierto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnParentesisAbierto.setForeground(new java.awt.Color(0, 0, 102));
         btnParentesisAbierto.setText("(");
-        btnParentesisAbierto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnParentesisAbierto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnParentesisAbierto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnParentesisAbiertoActionPerformed(evt);
@@ -194,8 +210,9 @@ public class frmInicio extends javax.swing.JFrame {
         });
 
         btnCorcheteAbierto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnCorcheteAbierto.setForeground(new java.awt.Color(0, 0, 102));
         btnCorcheteAbierto.setText("[");
-        btnCorcheteAbierto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCorcheteAbierto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCorcheteAbierto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCorcheteAbiertoActionPerformed(evt);
@@ -203,17 +220,22 @@ public class frmInicio extends javax.swing.JFrame {
         });
 
         btnCorcheteCerrado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnCorcheteCerrado.setForeground(new java.awt.Color(0, 0, 102));
         btnCorcheteCerrado.setText("]");
-        btnCorcheteCerrado.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnCorcheteCerrado.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCorcheteCerrado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCorcheteCerradoActionPerformed(evt);
             }
         });
 
-        btnResolver.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnResolver.setBackground(new java.awt.Color(0, 51, 153));
+        btnResolver.setFont(new java.awt.Font("Consolas", 1, 12)); // NOI18N
+        btnResolver.setForeground(new java.awt.Color(255, 255, 255));
         btnResolver.setText("Resolver");
         btnResolver.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnResolver.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnResolver.setMargin(new java.awt.Insets(5, 14, 3, 14));
         btnResolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResolverActionPerformed(evt);
@@ -223,6 +245,22 @@ public class frmInicio extends javax.swing.JFrame {
         lblCircuito.setBackground(new java.awt.Color(255, 255, 255));
         lblCircuito.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 204), 2));
 
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
+
+        txtTabla.setColumns(20);
+        txtTabla.setRows(5);
+        jScrollPane1.setViewportView(txtTabla);
+
+        btnBorrar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnBorrar.setForeground(new java.awt.Color(0, 51, 153));
+        btnBorrar.setText("←");
+        btnBorrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBorrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -230,6 +268,8 @@ public class frmInicio extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnResolver, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 459, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -275,19 +315,21 @@ public class frmInicio extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblCircuito, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnResolver, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)))
-                .addGap(24, 24, 24))
+                        .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(25, 25, 25))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnResolver, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCircuito, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
+                .addGap(77, 77, 77)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblCircuito, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnResolver, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
@@ -326,12 +368,14 @@ public class frmInicio extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnCorcheteAbierto, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCorcheteCerrado, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(20, 20, 20))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(26, 26, 26)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(246, Short.MAX_VALUE)))
+                    .addContainerGap(484, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -345,10 +389,10 @@ public class frmInicio extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(10, 10, 10))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -429,6 +473,10 @@ public class frmInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnResolverActionPerformed
 
+    private void btnBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBorrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -468,6 +516,7 @@ public class frmInicio extends javax.swing.JFrame {
     public javax.swing.JButton btnA;
     public javax.swing.JButton btnAnd;
     public javax.swing.JButton btnB;
+    public javax.swing.JButton btnBorrar;
     public javax.swing.JButton btnC;
     public javax.swing.JButton btnCorcheteAbierto;
     public javax.swing.JButton btnCorcheteCerrado;
@@ -487,6 +536,8 @@ public class frmInicio extends javax.swing.JFrame {
     public javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel lblCircuito;
+    public javax.swing.JTextArea txtTabla;
     // End of variables declaration//GEN-END:variables
 }

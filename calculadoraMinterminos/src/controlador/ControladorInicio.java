@@ -137,7 +137,26 @@ public class ControladorInicio {
             @Override
             public void actionPerformed(ActionEvent e) {
                 texto = inicio.lblCircuito.getText();
-                inicio.lblCircuito.setText(texto+"](");
+                inicio.lblCircuito.setText(texto+"]");
+            }
+        });
+        
+        this.inicio.btnResolver.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                
+            }
+        });
+        
+        this.inicio.btnBorrar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(inicio.lblCircuito.getText().length() >0){
+                    texto = inicio.lblCircuito.getText().substring(0, inicio.lblCircuito.getText().length()-1);
+                    inicio.lblCircuito.setText(texto);
+                }
+                
             }
         });
         
