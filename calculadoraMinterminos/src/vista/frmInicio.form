@@ -23,20 +23,27 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="a8" green="3a" red="33" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+            <LineBorder thickness="4">
+              <Color PropertyName="color" blue="99" green="0" red="0" type="rgb"/>
+            </LineBorder>
+          </Border>
         </Property>
       </Properties>
 
@@ -44,661 +51,661 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="459" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btnC" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  <Component id="btnD" min="-2" pref="39" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btnA" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  <Component id="btnB" min="-2" pref="39" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel1" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                  <Component id="btnNand" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btnNor" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btnXor" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  <Component id="btnXnor" min="-2" pref="39" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel3" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="btnNot" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  <Component id="btnAnd" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="btnOr" min="-2" pref="39" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="btnCorcheteAbierto" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                                  <Component id="btnCorcheteCerrado" min="-2" pref="39" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="btnParentesisAbierto" min="-2" pref="39" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="btnParentesisCerrado" min="-2" pref="39" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblCircuito" min="-2" pref="378" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btnBorrar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              <Component id="btnBorrarTodo" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="btnResolver" alignment="0" min="-2" pref="462" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Component id="jLabel2" alignment="1" pref="522" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="lblCircuito" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="btnBorrar" min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="btnBorrarTodo" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btnResolver" min="-2" pref="29" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel1" min="-2" pref="25" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnA" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="btnB" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="btnC" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="btnD" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="btnNot" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Component id="btnAnd" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="btnOr" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="btnXor" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Component id="btnXnor" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="btnNor" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                      <Component id="btnNand" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel4" min="-2" pref="25" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnParentesisCerrado" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="btnParentesisAbierto" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnCorcheteAbierto" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="btnCorcheteCerrado" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="272" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace pref="557" max="32767" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel2">
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Consolas" size="14" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Input"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnA">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="a"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnB">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="b"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnC">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="c"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnD">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="d"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Consolas" size="14" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Calculadora de Maxt&#xe9;rminos y Mint&#xe9;rminos"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel3">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Consolas" size="14" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Compuertas L&#xf3;gicas"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnNot">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="not"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNotActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnAnd">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="and"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAndActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnNand">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="nand"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNandActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnNor">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="nor"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNorActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnOr">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="or"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOrActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnXor">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="xor"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXorActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnXnor">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="xnor"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXnorActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel4">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Consolas" size="14" style="1"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="text" type="java.lang.String" value="Agrupaci&#xf3;n"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnParentesisCerrado">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value=")"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnParentesisCerradoActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnParentesisAbierto">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="("/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnParentesisAbiertoActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnCorcheteAbierto">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="["/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCorcheteAbiertoActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnCorcheteCerrado">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="]"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCorcheteCerradoActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnResolver">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="33" red="0" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Consolas" size="12" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Resolver"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+              <Insets value="[5, 14, 3, 14]"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResolverActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCircuito">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder thickness="2">
+                  <Color PropertyName="color" blue="cc" green="66" red="0" type="rgb"/>
+                </LineBorder>
+              </Border>
+            </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                <LineBorder>
+                  <Color PropertyName="color" blue="99" green="0" red="0" type="rgb"/>
+                </LineBorder>
+              </Border>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
 
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnResolver" alignment="0" min="-2" pref="462" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="459" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnC" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                      <Component id="btnD" min="-2" pref="39" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnA" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                      <Component id="btnB" min="-2" pref="39" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel1" alignment="0" min="-2" pref="93" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                      <Component id="btnNand" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="btnNor" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="btnXor" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                      <Component id="btnXnor" min="-2" pref="39" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="jLabel3" alignment="0" min="-2" pref="201" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                      <Component id="btnNot" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                      <Component id="btnAnd" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="btnOr" min="-2" pref="39" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="btnCorcheteAbierto" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                      <Component id="btnCorcheteCerrado" min="-2" pref="39" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="btnParentesisAbierto" min="-2" pref="39" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="btnParentesisCerrado" min="-2" pref="39" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblCircuito" min="-2" pref="378" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnBorrar" min="-2" pref="78" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Component id="jLabel2" alignment="1" pref="509" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="lblCircuito" min="-2" pref="29" max="-2" attributes="0"/>
-                          <Component id="btnBorrar" min="-2" pref="29" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnResolver" min="-2" pref="29" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel1" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnA" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <Component id="btnB" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnC" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <Component id="btnD" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel3" min="-2" pref="25" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="btnNot" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                          <Component id="btnAnd" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="btnOr" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="btnXor" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                          <Component id="btnXnor" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                                          <Component id="btnNor" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                          <Component id="btnNand" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel4" min="-2" pref="25" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnParentesisCerrado" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                  <Component id="btnParentesisAbierto" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnCorcheteAbierto" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                  <Component id="btnCorcheteCerrado" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="211" max="-2" attributes="0"/>
-                      <EmptySpace pref="17" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" pref="25" max="-2" attributes="0"/>
-                          <EmptySpace pref="484" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JTextArea" name="txtTabla">
               <Properties>
+                <Property name="columns" type="int" value="20"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Consolas" size="14" style="1"/>
+                  <Font name="Monospaced" size="12" style="0"/>
                 </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Input"/>
-                <Property name="horizontalTextPosition" type="int" value="0"/>
+                <Property name="rows" type="int" value="5"/>
               </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnA">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="a"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnB">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="b"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnC">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="c"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnD">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="d"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Consolas" size="14" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Calculadora de Maxt&#xe9;rminos y Mint&#xe9;rminos"/>
-                <Property name="horizontalTextPosition" type="int" value="0"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Consolas" size="14" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Compuertas L&#xf3;gicas"/>
-                <Property name="horizontalTextPosition" type="int" value="0"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnNot">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="not"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNotActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnAnd">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="and"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAndActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnNand">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="nand"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNandActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnNor">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="nor"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNorActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnOr">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="or"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOrActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnXor">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="xor"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXorActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnXnor">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="14" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="xnor"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnXnorActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Consolas" size="14" style="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Agrupaci&#xf3;n"/>
-                <Property name="horizontalTextPosition" type="int" value="0"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnParentesisCerrado">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value=")"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnParentesisCerradoActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnParentesisAbierto">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="("/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnParentesisAbiertoActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnCorcheteAbierto">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="["/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCorcheteAbiertoActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnCorcheteCerrado">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="18" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="66" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="]"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCorcheteCerradoActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnResolver">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="33" red="0" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Consolas" size="12" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Resolver"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-                <Property name="horizontalTextPosition" type="int" value="0"/>
-                <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
-                  <Insets value="[5, 14, 3, 14]"/>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnResolverActionPerformed"/>
-              </Events>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblCircuito">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder thickness="2">
-                      <Color PropertyName="color" blue="cc" green="66" red="0" type="rgb"/>
-                    </LineBorder>
-                  </Border>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-              <Properties>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-                    <LineBorder>
-                      <Color PropertyName="color" blue="99" green="0" red="0" type="rgb"/>
-                    </LineBorder>
-                  </Border>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTextArea" name="txtTabla">
-                  <Properties>
-                    <Property name="columns" type="int" value="20"/>
-                    <Property name="rows" type="int" value="5"/>
-                  </Properties>
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-                  </AuxValues>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JButton" name="btnBorrar">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Segoe UI" size="24" style="1"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="99" green="33" red="0" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="&#x2190;"/>
-                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                  <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                    <BevelBorder/>
-                  </Border>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBorrarActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JButton" name="btnBorrar">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="24" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="33" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x2190;"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBorrarActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnBorrarTodo">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="99" green="33" red="0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="C"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBorrarTodoActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

@@ -5,23 +5,36 @@
 package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import vista.frmInicio;
+import modelo.Operador;
 
 
 
 public class ControladorInicio {
     protected frmInicio inicio;
     private String texto;
+    private Operador operador;
+    private boolean a = false,b = false, c = false, d = false;
+    private ArrayList<Boolean> variables;
     
     public ControladorInicio (frmInicio inicio){
         this.inicio = inicio;
         this.texto = "";
+        this.operador = new Operador(inicio.txtTabla);
+        this.variables = new ArrayList();
+        
+        
+        
         //------------------------------------------ Agregar variables:
         this.inicio.btnA.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 texto = inicio.lblCircuito.getText();
                 inicio.lblCircuito.setText(texto+"a");
+                a = true;
+                
             }
         });
         
@@ -29,7 +42,8 @@ public class ControladorInicio {
             @Override
             public void actionPerformed(ActionEvent e) {
                 texto = inicio.lblCircuito.getText();
-                inicio.lblCircuito.setText(texto+"b");    
+                inicio.lblCircuito.setText(texto+"b");  
+                b = true;
             }
         });
         
@@ -38,6 +52,7 @@ public class ControladorInicio {
             public void actionPerformed(ActionEvent e) {
                 texto = inicio.lblCircuito.getText();
                 inicio.lblCircuito.setText(texto+"c");
+                c = true;
             }
         });
         
@@ -46,6 +61,7 @@ public class ControladorInicio {
             public void actionPerformed(ActionEvent e) {
                 texto = inicio.lblCircuito.getText();
                 inicio.lblCircuito.setText(texto+"d");
+                d = true;
             }
         });
         
@@ -144,8 +160,10 @@ public class ControladorInicio {
         this.inicio.btnResolver.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                
-                
+                inicio.txtTabla.setText("");
+                llenarLista();                
+                operador.imprimirTabla(variables, inicio.txtTabla);
+                vaciarLista();
             }
         });
         
@@ -160,6 +178,17 @@ public class ControladorInicio {
             }
         });
         
+        this.inicio.btnBorrarTodo.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(inicio.lblCircuito.getText().length() >0){
+                   inicio.lblCircuito.setText("");
+                   vaciarLista();
+                }
+                
+            }
+        });
+        
         
     }
     
@@ -167,6 +196,8 @@ public class ControladorInicio {
         this.inicio.setLocationRelativeTo(null);
         this.inicio.setVisible(true);
         this.inicio.lblCircuito.setText("");
+        this.inicio.txtTabla.setText("");
+       this.inicio.txtTabla.setEditable(false);
     }
     
     public String getTexto() {
@@ -177,6 +208,46 @@ public class ControladorInicio {
         this.texto = texto;
     }
     
+    public void llenarLista(){
+        if(this.a == true){
+            variables.add(a);
+            this.a = false;
+        }
+        
+        if(this.b == true){
+            variables.add(b);
+            this.b = false;
+        }else{
+        }
+        
+        if(this.c == true){
+            variables.add(c);
+            this.c = false;
+        }else{
+        }
+        
+        if(this.d == true){
+            variables.add(d);  
+            this.d = false;
+        }else{
+        }
+    }
+    
+     public void vaciarLista(){
+        for(int i = variables.size()-1; i == 0; i--){            
+            variables.remove(i);            
+        }
+        variables.remove(a);
+        variables.remove(b);
+        variables.remove(c);
+        variables.remove(d);
+
+        this.a = false;
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        //JOptionPane.showMessageDialog(null, variables.size());
+    }
     
     
 }
