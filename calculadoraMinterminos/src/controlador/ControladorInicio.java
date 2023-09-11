@@ -6,6 +6,7 @@ package controlador;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Stack;
 import javax.swing.JOptionPane;
 import vista.frmInicio;
 import modelo.Operador;
@@ -161,9 +162,14 @@ public class ControladorInicio {
             @Override
             public void actionPerformed(ActionEvent e) {
                 inicio.txtTabla.setText("");
-                llenarLista();                
-                operador.imprimirTabla(variables, inicio.txtTabla);
-                vaciarLista();
+                if(verificarAgrupacion(inicio.lblCircuito.getText())==true){
+                    llenarLista();                
+                    operador.imprimirTabla(variables, inicio.txtTabla);
+                    vaciarLista();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Error: Verifique el balanceo de los signos de agrupación.");
+                }
+                
             }
         });
         
@@ -248,6 +254,55 @@ public class ControladorInicio {
         this.d = false;
         //JOptionPane.showMessageDialog(null, variables.size());
     }
+    
+     
+    public boolean verificarAgrupacion(String texto){
+        int cont = 0;
+        Stack<Character> parentesis = new Stack();
+        Stack<Character> corchetes = new Stack();
+        
+        for(int i=0; i<texto.length(); i++){
+            switch (texto.charAt(i)) {
+                case '(':
+                    parentesis.push('(');
+                    cont++;
+                    break;
+                    
+                case ')':
+                    if(parentesis.isEmpty()){
+                        break;
+                    }else{
+                        parentesis.pop();
+                    }
+                    cont--;
+                    break;
+                    
+                case '[':
+                    corchetes.push('[');
+                    cont++;
+                    break;
+                    
+                case ']':                    
+                    if(corchetes.isEmpty()){
+                        break;
+                    }else{
+                        corchetes.pop();
+                    }
+                    cont--;
+                    break;
+                    
+                default:
+                    break;
+                
+            }
+            
+        } 
+        
+        return ((parentesis.isEmpty() == true) && (corchetes.isEmpty() == true) && ((cont == texto.length()-1) || (cont == 0)));
+        
+    }
+    
+    
     
     
 }

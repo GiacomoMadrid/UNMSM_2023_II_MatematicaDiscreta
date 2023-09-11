@@ -30,20 +30,20 @@ public class Operador {
         return var1 || var2;
     }
             
-    public boolean nand(boolean a, boolean b){
-        return !(a && b);
+    public boolean nand(boolean var1, boolean var2){
+        return !(var1 && var2);
     } 
     
-    public boolean nor(boolean a, boolean b){
-        return !(a || b);
+    public boolean nor(boolean var1, boolean var2){
+        return !(var1 || var2);
     } 
     
-    public boolean xor(boolean a, boolean b){
-        return (a && !b) || (b && !a);
+    public boolean xor(boolean var1, boolean var2){
+        return (var1 && !var2) || (var2 && !var1);
     } 
     
-    public boolean xnor(boolean a, boolean b){
-        return !((a && !b) || (b && !a));
+    public boolean xnor(boolean var1, boolean var2){
+        return !((var1 && !var2) || (var2 && !var1));
     }
     //------------------------------------- Métodos --------------------------------
     
@@ -54,6 +54,19 @@ public class Operador {
         }else{
             return 0;
         }
+    }
+    
+    public boolean resultado(boolean var1, boolean var2, String funcion){
+        boolean respuesta;
+        
+        respuesta = xor(var1, var2);
+        
+        return respuesta;       
+    }
+    
+    public boolean resolverFuncion(String funcion){
+    
+        return false;
     }
     
     //------------------------ Imprimir Tabla de Verdad -------------------------
