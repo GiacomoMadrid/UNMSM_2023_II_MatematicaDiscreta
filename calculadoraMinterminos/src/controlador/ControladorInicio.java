@@ -198,6 +198,8 @@ public class ControladorInicio {
         
     }
     
+    //------------------------------------------ Métodos --------------------------------------
+    
     public void iniciar(){
         this.inicio.setLocationRelativeTo(null);
         this.inicio.setVisible(true);
@@ -205,15 +207,7 @@ public class ControladorInicio {
         this.inicio.txtTabla.setText("");
        this.inicio.txtTabla.setEditable(false);
     }
-    
-    public String getTexto() {
-        return texto;
-    }
-
-    public void setTexto(String texto) {
-        this.texto = texto;
-    }
-    
+        
     public void llenarLista(){
         if(this.a == true){
             variables.add(a);
@@ -252,7 +246,7 @@ public class ControladorInicio {
         this.b = false;
         this.c = false;
         this.d = false;
-        //JOptionPane.showMessageDialog(null, variables.size());
+        
     }
     
      
@@ -298,11 +292,27 @@ public class ControladorInicio {
             
         } 
         
-        return ((parentesis.isEmpty() == true) && (corchetes.isEmpty() == true) && ((cont == texto.length()-1) || (cont == 0)));
+        return ((parentesis.isEmpty() == true) && (corchetes.isEmpty() == true) && (cont == 0));
         
     }
     
     
+    
+    
+    
+    
+    
+    
+    
+    //------------------------------------------ Get & Set ------------------------------------
+    
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
     
     
 }

@@ -1,6 +1,9 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
 /**
@@ -159,16 +162,82 @@ public class Operador {
                 }
                 break;
             
+            }            
+        }  
+    }
+    
+    
+    public void evaluarPares(String texto){
+        Boolean resp;
+        String regexChar = "[abcd]";
+        String regexOperador = "[abcd][∧∨↑↓⊕⊙][abcd]";
+        String regexNegacion = "[¬][abcd]";
+        String regexAgrupacion = "[([{}])]";
+        
+        Pattern pChar = Pattern.compile(regexChar);
+        Pattern pOperador = Pattern.compile(regexOperador);
+        Pattern pNegacion = Pattern.compile(regexNegacion);
+        Pattern pAgrupacion = Pattern.compile(regexAgrupacion);
+        
+        Matcher mChar = pChar.matcher(texto);
+        Matcher mOperador = pOperador.matcher(texto);
+        Matcher mNegacion = pNegacion.matcher(texto);
+        Matcher mAgrupacion = pAgrupacion.matcher(texto);
+        
+        for(int i=0; i<texto.length();i++){
+            
+            if(mNegacion.find()){
+                resp = !Boolean.valueOf(""+pNegacion.toString().charAt(1));
+            
+            }else if(mOperador.find()){
+                switch(mOperador.toString().charAt(1)){
+                    case '∧':{
+                        resp = and(Boolean.parseBoolean(""+pNegacion.toString().charAt(0)),Boolean.parseBoolean(""+pNegacion.toString().charAt(2)));
+                        break;
+                    }
+                    
+                    case '∨':{
+                        resp = or(Boolean.parseBoolean(""+pNegacion.toString().charAt(0)),Boolean.parseBoolean(""+pNegacion.toString().charAt(2)));
+                        break;
+                    
+                    }
+                    
+                    case '↑':{
+                        resp = nand(Boolean.parseBoolean(""+pNegacion.toString().charAt(0)),Boolean.parseBoolean(""+pNegacion.toString().charAt(2)));
+                        break;
+                    }
+                    
+                    case '↓':{
+                        resp = nor(Boolean.parseBoolean(""+pNegacion.toString().charAt(0)),Boolean.parseBoolean(""+pNegacion.toString().charAt(2)));
+                        break;
+                    }
+                    
+                    case '⊕':{
+                        resp = xor(Boolean.parseBoolean(""+pNegacion.toString().charAt(0)),Boolean.parseBoolean(""+pNegacion.toString().charAt(2)));
+                        break;
+                    }
+                    
+                    case '⊙':{
+                        resp = xnor(Boolean.parseBoolean(""+pNegacion.toString().charAt(0)),Boolean.parseBoolean(""+pNegacion.toString().charAt(2)));
+                        break;
+                    }
+                }
+            
+            }else if(mChar.find()){
+                resp = Boolean.valueOf(mChar.toString());
+            
+            }else if(mAgrupacion.find()){
+                
+            
+            }else{
+                JOptionPane.showMessageDialog(null, "Operador desconocido: "+texto.charAt(i));
             }
+                 
             
-             
-             
-            
-        }    
-      
-
+        }
         
     }
+    
     
     
 }
