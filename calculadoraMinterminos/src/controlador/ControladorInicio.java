@@ -164,7 +164,9 @@ public class ControladorInicio {
                 inicio.txtTabla.setText("");
                 if(verificarAgrupacion(inicio.lblCircuito.getText())==true){
                     llenarLista();                
-                    operador.imprimirTabla(variables, inicio.txtTabla);
+                    operador.imprimirTabla(variables, inicio.txtTabla, inicio.lblCircuito.getText());
+                    inicio.txtTabla.append("\n");
+                    
                     vaciarLista();
                 }else{
                     JOptionPane.showMessageDialog(null, "Error: Verifique el balanceo de los signos de agrupación.");
@@ -205,7 +207,7 @@ public class ControladorInicio {
         this.inicio.setVisible(true);
         this.inicio.lblCircuito.setText("");
         this.inicio.txtTabla.setText("");
-       this.inicio.txtTabla.setEditable(false);
+        this.inicio.txtTabla.setEditable(false);
     }
         
     public void llenarLista(){

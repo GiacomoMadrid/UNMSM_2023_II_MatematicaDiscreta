@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -74,17 +75,18 @@ public class Operador {
     
     //------------------------ Imprimir Tabla de Verdad -------------------------
     
-    public  void imprimirTabla(ArrayList<Boolean> variables, JTextArea areaTexto){
+    public  void imprimirTabla(ArrayList<Boolean> variables, JTextArea areaTexto, String texto){
         numVariables = variables.size();
         numOperaciones = (int) Math.pow(2, numVariables);
-
+        
         switch(variables.size()){
             case 1:{
                 variables.set(0, false);
                 areaTexto.append("Tabla Logica\n");
 
                 for(int i = 0; i<2; i++){ 
-                    areaTexto.append(""+binario(variables.get(0))+"\n");
+                    a = variables.get(0);
+                    areaTexto.append(""+binario(variables.get(0))+"\t"+binario(resolverExpresion(texto, variables))+"\n");
                     variables.set(0, !variables.get(0));
 
                 }
@@ -101,7 +103,11 @@ public class Operador {
 
                 for(int i = 0; i<numOperaciones/2; i++){ 
                     for(int j = 0; j<numOperaciones/2; j++){
-                        areaTexto.append(""+binario(variables.get(0))+"\t"+binario(variables.get(1))+"\n");
+                        a = variables.get(0);
+                        b = variables.get(1);
+                        areaTexto.append(""+binario(variables.get(0))+"\t"+binario(variables.get(1))+"\t"
+                                +binario(resolverExpresion(texto, variables))
+                                +"\n");
                         variables.set(1, !variables.get(1));
                     }
                     variables.set(0, !variables.get(0));  
@@ -120,9 +126,12 @@ public class Operador {
                 for(int k = 0; k<2; k++){ 
                     for(int i = 0; i<2; i++){ 
                         for(int j = 0; j<2; j++){
+                            a = variables.get(0);
+                            b = variables.get(1);
+                            c = variables.get(2);
                             areaTexto.append(""
-                                    +binario(variables.get(0))+"\t"+binario(variables.get(1))+"\t"+binario(variables.get(2))+
-                                    "\n");
+                                    +binario(variables.get(0))+"\t"+binario(variables.get(1))+"\t"+binario(variables.get(2))
+                                    +"\t"+binario(resolverExpresion(texto, variables))+"\n");
                             variables.set(2, !variables.get(2)); 
                         }
                         variables.set(1, !variables.get(1)); 
@@ -145,9 +154,14 @@ public class Operador {
                     for(int k = 0; k<2; k++){ 
                         for(int i = 0; i<2; i++){ 
                             for(int j = 0; j<2; j++){
+                                a = variables.get(0);
+                                b = variables.get(1);
+                                c = variables.get(2);
+                                d = variables.get(3);
+                                
                                 areaTexto.append(""
                                     +binario(variables.get(0))+"\t"+binario(variables.get(1))+"\t"+binario(variables.get(2))+
-                                    "\t"+binario(variables.get(3))+
+                                    "\t"+binario(variables.get(3))+"\t"+binario(resolverExpresion(texto, variables))+
                                     "\n");
                                 
                                 variables.set(3, !variables.get(3)); 
@@ -166,77 +180,189 @@ public class Operador {
         }  
     }
     
-    
-    public void evaluarPares(String texto){
-        Boolean resp;
-        String regexChar = "[abcd]";
-        String regexOperador = "[abcd][∧∨↑↓⊕⊙][abcd]";
-        String regexNegacion = "[¬][abcd]";
-        String regexAgrupacion = "[([{}])]";
-        
-        Pattern pChar = Pattern.compile(regexChar);
-        Pattern pOperador = Pattern.compile(regexOperador);
-        Pattern pNegacion = Pattern.compile(regexNegacion);
-        Pattern pAgrupacion = Pattern.compile(regexAgrupacion);
-        
-        Matcher mChar = pChar.matcher(texto);
-        Matcher mOperador = pOperador.matcher(texto);
-        Matcher mNegacion = pNegacion.matcher(texto);
-        Matcher mAgrupacion = pAgrupacion.matcher(texto);
-        
-        for(int i=0; i<texto.length();i++){
-            
+    public void miau(){/*
+        //Falta Completar, probar, validar, implementar, ver si funciona, todo:
+        public Boolean evaluarPares(String texto, int iterador){
+            String regexChar = "[abcd]";
+            String regexOperador = "[abcd][∧∨↑↓⊕⊙][abcd]";
+            String regexNegacion = "[¬][abcd]";
+            String regexAgrupacion = "[([{}])]";
+
+            Pattern pChar = Pattern.compile(regexChar);
+            Pattern pOperador = Pattern.compile(regexOperador);
+            Pattern pNegacion = Pattern.compile(regexNegacion);
+            Pattern pAgrupacion = Pattern.compile(regexAgrupacion);
+
+            Matcher mChar = pChar.matcher(texto);
+            Matcher mOperador = pOperador.matcher(texto);
+            Matcher mNegacion = pNegacion.matcher(texto);
+            Matcher mAgrupacion = pAgrupacion.matcher(texto);
+
+
             if(mNegacion.find()){
-                resp = !Boolean.valueOf(""+pNegacion.toString().charAt(1));
-            
+                return !Boolean.valueOf(""+pNegacion.toString().charAt(iterador+1));
+
             }else if(mOperador.find()){
-                switch(mOperador.toString().charAt(1)){
+                switch(mOperador.toString().charAt(iterador+1)){
                     case '∧':{
-                        resp = and(Boolean.parseBoolean(""+pNegacion.toString().charAt(0)),Boolean.parseBoolean(""+pNegacion.toString().charAt(2)));
-                        break;
+                        return and(Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador)),Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador+2)));
                     }
-                    
+
                     case '∨':{
-                        resp = or(Boolean.parseBoolean(""+pNegacion.toString().charAt(0)),Boolean.parseBoolean(""+pNegacion.toString().charAt(2)));
-                        break;
-                    
+                        return or(Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador)),Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador+2)));
                     }
-                    
+
                     case '↑':{
-                        resp = nand(Boolean.parseBoolean(""+pNegacion.toString().charAt(0)),Boolean.parseBoolean(""+pNegacion.toString().charAt(2)));
-                        break;
+                        return nand(Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador)),Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador+2)));
                     }
-                    
+
                     case '↓':{
-                        resp = nor(Boolean.parseBoolean(""+pNegacion.toString().charAt(0)),Boolean.parseBoolean(""+pNegacion.toString().charAt(2)));
-                        break;
+                        return nor(Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador)),Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador+2)));
                     }
-                    
+
                     case '⊕':{
-                        resp = xor(Boolean.parseBoolean(""+pNegacion.toString().charAt(0)),Boolean.parseBoolean(""+pNegacion.toString().charAt(2)));
-                        break;
+                        return xor(Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador)),Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador+2)));
                     }
-                    
+
                     case '⊙':{
-                        resp = xnor(Boolean.parseBoolean(""+pNegacion.toString().charAt(0)),Boolean.parseBoolean(""+pNegacion.toString().charAt(2)));
-                        break;
+                        return xnor(Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador)),Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador+2)));
                     }
                 }
-            
+
             }else if(mChar.find()){
-                resp = Boolean.valueOf(mChar.toString());
-            
+                return Boolean.valueOf(mChar.toString());
+
             }else if(mAgrupacion.find()){
-                
-            
+
             }else{
-                JOptionPane.showMessageDialog(null, "Operador desconocido: "+texto.charAt(i));
+                JOptionPane.showMessageDialog(null, "Operador desconocido: "+texto.charAt(iterador));
+                return null;
             }
-                 
+
+            return null;
+
+        }
+    */
+    } 
+    
+    //---------------------------------------------------------------------------------
+    
+    public boolean resolverExpresion(String expresion, ArrayList<Boolean> var) {
+        Stack<Boolean> variables = new Stack<>();
+        Stack<Character> agrupadores = new Stack<>();
+        Stack<Character> operadores = new Stack<>();
+
+        for (int i = 0; i < expresion.length(); i++) {
+            char letra = expresion.charAt(i);
             
+            if (Character.isAlphabetic(letra)) {
+                StringBuilder variable = new StringBuilder();
+                
+                while (i < expresion.length() && (Character.isAlphabetic(expresion.charAt(i)))) {
+                    variable.append(expresion.charAt(i));
+                    i++;
+                }
+                
+                variables.push(Boolean.parseBoolean(variable.toString()));
+                i--;
+                
+            } else if (letra == '(' || letra == '[') {
+                agrupadores.push(letra);
+                
+            } else if (letra == ')' || letra == ']') {
+                while (!agrupadores.isEmpty() && agrupadores.peek() != '(' && agrupadores.peek() != '[') {
+                    calcularOperacion(variables, operadores);
+                    
+                }
+                
+                agrupadores.pop(); // Eliminar el paréntesis o corchete abierto
+                
+            } else if (esOperador(letra)) {
+                while (!operadores.isEmpty() && precedencia(operadores.peek(), letra)) {
+                    calcularOperacion(variables, operadores);
+                    
+                }
+                
+                operadores.push(letra);
+            }
+        }
+
+        while (!operadores.isEmpty()) {
+            calcularOperacion(variables, operadores);
+        }
+
+        return variables.pop();
+    }
+
+    public boolean esOperador(char letra) {
+        return letra == '¬' || letra == '∧' || letra == '∨' || letra == '↑' || letra == '↓' || letra == '⊕' || letra == '⊙';
+    }
+
+    public boolean precedencia(char op1, char op2) {
+        if ((op1 == '¬' ) && (op2 == '∧' || op2 == '∨' || op2 == '↑' || op2 == '↓' || op2 == '⊕' || op2 == '⊙')) {
+            return true;
         }
         
+        if ((op1 == '∧' || op1 == '∨') && (op2 == '↑' || op2 == '↓' || op2 == '⊕' || op2 == '⊙')) {
+            return true;
+        }
+        
+        if ((op1 == '↑' || op1 == '↓') && (op2 == '⊕' || op2 == '⊙')) {
+            return true;
+        }
+        return false;
     }
+
+    public void calcularOperacion(Stack<Boolean> variables, Stack<Character> operadores) {
+        char operador = operadores.pop();
+        boolean valor1 = variables.pop();
+        boolean valor2;
+        boolean resultado = true;
+
+        switch (operador) {
+            case '¬':
+                resultado = !valor1;
+                break; 
+            case '∧':
+                valor2 = variables.pop();
+                resultado = and(valor1, valor2);
+                break;
+            case '∨':
+                valor2 = variables.pop();
+                resultado = or(valor1, valor2);
+                break;
+            case '↑':
+                valor2 = variables.pop();
+                resultado = nand(valor1, valor2);
+                break;
+            case '↓':
+                valor2 = variables.pop();
+                resultado = nor(valor1, valor2);
+                break;
+            case '⊕':
+                valor2 = variables.pop();
+                resultado = xor(valor1, valor2);
+                break;
+            case '⊙':
+                valor2 = variables.pop();
+                resultado = xnor(valor1, valor2);
+                break;  
+            
+                
+        }
+
+        variables.push(resultado);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
