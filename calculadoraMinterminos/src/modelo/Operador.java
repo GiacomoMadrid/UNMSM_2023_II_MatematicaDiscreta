@@ -99,6 +99,7 @@ public class Operador {
             case 2:{
                 variables.set(0, false);
                 variables.set(1, false);
+                
                 areaTexto.append("Tabla Logica\n");
 
                 for(int i = 0; i<numOperaciones/2; i++){ 
@@ -247,15 +248,58 @@ public class Operador {
     
     //---------------------------------------------------------------------------------
     
+    
+    /*
+     I. Convertir la infija a prefija o a posfija
+        1. Obtener los caracteres de la expresion infija
+        2. Si es operando, va a la expresion posfija
+        3. Si es operador
+                Si la pila está vacia
+                    va a la pila y volver al paso (1.).
+                Si la pila NO estavacia
+                    Si la prioridad del operador nuevo es MAYOR a la que está en la pila:
+                        va a la pila y volver al paso (1.)
+                    Si la prioridad del operador nuevo en la pila es MENOR O IGUAL a la que esta en la pila:
+                        Sacar el operador de la pila y pasarlo a la expresion posfija
+                        colocar el operador nuevo en la pila.
+                        volver al paso (3.)
+        4. Colocar los operadores de la pila en la expresion posfija
+     II. Procesar:
+        
+           
+    */
     public boolean resolverExpresion(String expresion, ArrayList<Boolean> var) {
         Stack<Boolean> variables = new Stack<>();
-        Stack<Character> agrupadores = new Stack<>();
         Stack<Character> operadores = new Stack<>();
+        
+        for(int j=0; j<var.size(); j++){
+            switch(j){
+                case 0:{
+                    a = var.get(j);
+                    break;
+                }
 
+                case 1:{
+                    b = var.get(j);
+                    break;
+                }
+
+                case 2:{
+                    c = var.get(j);
+                    break;
+                }
+
+                case 3:{
+                    d = var.get(j);
+                    break;
+                }
+            }
+        }
+        
         for (int i = 0; i < expresion.length(); i++) {
             char letra = expresion.charAt(i);
             
-            if (Character.isAlphabetic(letra)) {
+            if (Character.isAlphabetic(letra) && (letra == 'a' || letra == 'b' || letra == 'c' || letra == 'd')) {
                 StringBuilder variable = new StringBuilder();
                 
                 while (i < expresion.length() && (Character.isAlphabetic(expresion.charAt(i)))) {
@@ -263,19 +307,20 @@ public class Operador {
                     i++;
                 }
                 
+                
                 variables.push(Boolean.parseBoolean(variable.toString()));
                 i--;
                 
             } else if (letra == '(' || letra == '[') {
-                agrupadores.push(letra);
+                operadores.push(letra);
                 
             } else if (letra == ')' || letra == ']') {
-                while (!agrupadores.isEmpty() && agrupadores.peek() != '(' && agrupadores.peek() != '[') {
+                while (!operadores.isEmpty() && operadores.peek() != '(' && operadores.peek() != '[') {
                     calcularOperacion(variables, operadores);
                     
                 }
                 
-                agrupadores.pop(); // Eliminar el paréntesis o corchete abierto
+                operadores.pop(); // Eliminar el paréntesis o corchete abierto
                 
             } else if (esOperador(letra)) {
                 while (!operadores.isEmpty() && precedencia(operadores.peek(), letra)) {
@@ -325,7 +370,7 @@ public class Operador {
                 break; 
             case '∧':
                 valor2 = variables.pop();
-                resultado = and(valor1, valor2);
+                resultado = valor1 && valor2;
                 break;
             case '∨':
                 valor2 = variables.pop();
