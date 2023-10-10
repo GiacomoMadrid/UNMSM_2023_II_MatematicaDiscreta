@@ -126,8 +126,9 @@ public class frmInicio extends javax.swing.JFrame {
         jLabel4.setText("Agrupación");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        btnParentesisAbierto.setBackground(new java.awt.Color(0, 51, 153));
         btnParentesisAbierto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnParentesisAbierto.setForeground(new java.awt.Color(0, 0, 102));
+        btnParentesisAbierto.setForeground(new java.awt.Color(255, 255, 255));
         btnParentesisAbierto.setText("(");
         btnParentesisAbierto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnParentesisAbierto.addActionListener(new java.awt.event.ActionListener() {
@@ -136,8 +137,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnParentesisCerrado.setBackground(new java.awt.Color(0, 51, 153));
         btnParentesisCerrado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnParentesisCerrado.setForeground(new java.awt.Color(0, 0, 102));
+        btnParentesisCerrado.setForeground(new java.awt.Color(255, 255, 255));
         btnParentesisCerrado.setText(")");
         btnParentesisCerrado.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnParentesisCerrado.addActionListener(new java.awt.event.ActionListener() {
@@ -146,8 +148,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnCorcheteAbierto.setBackground(new java.awt.Color(0, 51, 153));
         btnCorcheteAbierto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnCorcheteAbierto.setForeground(new java.awt.Color(0, 0, 102));
+        btnCorcheteAbierto.setForeground(new java.awt.Color(255, 255, 255));
         btnCorcheteAbierto.setText("[");
         btnCorcheteAbierto.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCorcheteAbierto.addActionListener(new java.awt.event.ActionListener() {
@@ -156,8 +159,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnCorcheteCerrado.setBackground(new java.awt.Color(0, 51, 153));
         btnCorcheteCerrado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnCorcheteCerrado.setForeground(new java.awt.Color(0, 0, 102));
+        btnCorcheteCerrado.setForeground(new java.awt.Color(255, 255, 255));
         btnCorcheteCerrado.setText("]");
         btnCorcheteCerrado.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnCorcheteCerrado.addActionListener(new java.awt.event.ActionListener() {
@@ -166,8 +170,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnXnor.setBackground(new java.awt.Color(0, 51, 153));
         btnXnor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnXnor.setForeground(new java.awt.Color(0, 0, 102));
+        btnXnor.setForeground(new java.awt.Color(255, 255, 255));
         btnXnor.setText("xnor");
         btnXnor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnXnor.addActionListener(new java.awt.event.ActionListener() {
@@ -176,8 +181,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnXor.setBackground(new java.awt.Color(0, 51, 153));
         btnXor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnXor.setForeground(new java.awt.Color(0, 0, 102));
+        btnXor.setForeground(new java.awt.Color(255, 255, 255));
         btnXor.setText("xor");
         btnXor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnXor.addActionListener(new java.awt.event.ActionListener() {
@@ -186,8 +192,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnOr.setBackground(new java.awt.Color(0, 51, 153));
         btnOr.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnOr.setForeground(new java.awt.Color(0, 0, 102));
+        btnOr.setForeground(new java.awt.Color(255, 255, 255));
         btnOr.setText("or");
         btnOr.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnOr.addActionListener(new java.awt.event.ActionListener() {
@@ -196,8 +203,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnAnd.setBackground(new java.awt.Color(0, 51, 153));
         btnAnd.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnAnd.setForeground(new java.awt.Color(0, 0, 102));
+        btnAnd.setForeground(new java.awt.Color(255, 255, 255));
         btnAnd.setText("and");
         btnAnd.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnAnd.addActionListener(new java.awt.event.ActionListener() {
@@ -206,8 +214,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnNor.setBackground(new java.awt.Color(0, 51, 153));
         btnNor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnNor.setForeground(new java.awt.Color(0, 0, 102));
+        btnNor.setForeground(new java.awt.Color(255, 255, 255));
         btnNor.setText("nor");
         btnNor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnNor.addActionListener(new java.awt.event.ActionListener() {
@@ -216,8 +225,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnNot.setBackground(new java.awt.Color(0, 51, 153));
         btnNot.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnNot.setForeground(new java.awt.Color(0, 0, 102));
+        btnNot.setForeground(new java.awt.Color(255, 255, 255));
         btnNot.setText("not");
         btnNot.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnNot.addActionListener(new java.awt.event.ActionListener() {
@@ -231,8 +241,9 @@ public class frmInicio extends javax.swing.JFrame {
         jLabel3.setText("Compuertas Lógicas");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        btnNand.setBackground(new java.awt.Color(0, 51, 153));
         btnNand.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnNand.setForeground(new java.awt.Color(0, 0, 102));
+        btnNand.setForeground(new java.awt.Color(255, 255, 255));
         btnNand.setText("nand");
         btnNand.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnNand.addActionListener(new java.awt.event.ActionListener() {
@@ -241,8 +252,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnF.setBackground(new java.awt.Color(0, 51, 153));
         btnF.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnF.setForeground(new java.awt.Color(0, 0, 102));
+        btnF.setForeground(new java.awt.Color(255, 255, 255));
         btnF.setText("f");
         btnF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnF.addActionListener(new java.awt.event.ActionListener() {
@@ -251,8 +263,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnE.setBackground(new java.awt.Color(0, 51, 153));
         btnE.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnE.setForeground(new java.awt.Color(0, 0, 102));
+        btnE.setForeground(new java.awt.Color(255, 255, 255));
         btnE.setText("e");
         btnE.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnE.addActionListener(new java.awt.event.ActionListener() {
@@ -261,8 +274,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnC.setBackground(new java.awt.Color(0, 51, 153));
         btnC.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnC.setForeground(new java.awt.Color(0, 0, 102));
+        btnC.setForeground(new java.awt.Color(255, 255, 255));
         btnC.setText("c");
         btnC.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnC.addActionListener(new java.awt.event.ActionListener() {
@@ -271,8 +285,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnB.setBackground(new java.awt.Color(0, 51, 153));
         btnB.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnB.setForeground(new java.awt.Color(0, 0, 102));
+        btnB.setForeground(new java.awt.Color(255, 255, 255));
         btnB.setText("b");
         btnB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnB.addActionListener(new java.awt.event.ActionListener() {
@@ -286,8 +301,9 @@ public class frmInicio extends javax.swing.JFrame {
         jLabel1.setText("Variables");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        btnA.setBackground(new java.awt.Color(0, 51, 153));
         btnA.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnA.setForeground(new java.awt.Color(0, 0, 102));
+        btnA.setForeground(new java.awt.Color(255, 255, 255));
         btnA.setText("a");
         btnA.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnA.addActionListener(new java.awt.event.ActionListener() {
@@ -296,8 +312,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnD.setBackground(new java.awt.Color(0, 51, 153));
         btnD.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnD.setForeground(new java.awt.Color(0, 0, 102));
+        btnD.setForeground(new java.awt.Color(255, 255, 255));
         btnD.setText("d");
         btnD.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnD.addActionListener(new java.awt.event.ActionListener() {
@@ -306,8 +323,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnImplica.setBackground(new java.awt.Color(0, 51, 153));
         btnImplica.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        btnImplica.setForeground(new java.awt.Color(0, 0, 102));
+        btnImplica.setForeground(new java.awt.Color(255, 255, 255));
         btnImplica.setText("implic");
         btnImplica.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnImplica.addActionListener(new java.awt.event.ActionListener() {
