@@ -31,7 +31,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel2" alignment="0" pref="762" max="32767" attributes="0"/>
+          <Component id="jPanel2" alignment="0" pref="692" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -98,8 +98,8 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="panBotones" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="366" max="-2" attributes="0"/>
-                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="312" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel6" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -328,17 +328,17 @@
                           <Component id="jLabel1" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btnParentesisCerrado" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                                       <Component id="btnParentesisAbierto" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                  <Component id="btnA" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btnC" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <Component id="btnA" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
                                       <Component id="btnB" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="btnNot" alignment="0" min="-2" pref="39" max="-2" attributes="0"/>
@@ -361,7 +361,6 @@
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               <Component id="btnXor" min="-2" pref="39" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Component id="btnXnor" min="-2" pref="39" max="-2" attributes="0"/>
