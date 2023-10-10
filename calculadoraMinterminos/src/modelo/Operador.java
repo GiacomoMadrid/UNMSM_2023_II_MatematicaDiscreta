@@ -1,9 +1,7 @@
 package modelo;
 
-import java.util.ArrayList;
 import java.util.Stack;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
@@ -12,15 +10,14 @@ import javax.swing.JTextArea;
  * @author Giacomo Salvador
  */
 public class Operador {
-    private boolean a,b,c,d;
     private int numVariables;
-    private int numOperaciones;
-    private String funcion;
+    private String funcionInfija;
+    private String expresionPrefija;
     
     
-    public Operador(JTextArea areaOperacion){
-     this.funcion = areaOperacion.getText();
-        
+    public Operador(JTextArea areaOperacion, JLabel label){
+        this.funcionInfija = label.getText();
+        this.expresionPrefija = "";
         
     }
     
@@ -49,6 +46,7 @@ public class Operador {
     public boolean xnor(boolean var1, boolean var2){
         return !((var1 && !var2) || (var2 && !var1));
     }
+    
     //------------------------------------- Métodos --------------------------------
     
     public int binario(boolean valorDeVerdad){
@@ -60,193 +58,860 @@ public class Operador {
         }
     }
     
-    public boolean resultado(boolean var1, boolean var2, String funcion){
-        boolean respuesta;
-        
-        respuesta = xor(var1, var2);
-        
-        return respuesta;       
-    }
-    
-    public boolean resolverFuncion(String funcion){
-    
+    //Pasos para resolver:
+    public boolean generarPrefija(){
+        if(verificarAgrupacion(funcionInfija) == true){
+            Stack<Character> pila = new Stack();
+                        
+            expresionPrefija = "";
+            String expresionInvertida = "";            
+            
+            //Invertir funcion
+            for(int i = funcionInfija.length()-1; i>=0; i--){
+                expresionInvertida += ""+funcionInfija.charAt(i);
+            }
+            funcionInfija = expresionInvertida;
+            expresionInvertida = "";
+            
+            //Recorrer el string de la expresion invertida:
+            for(int i = 0; i < funcionInfija.length(); i++){
+                char simbolo = funcionInfija.charAt(i);
+                
+                if (!esOperador(simbolo)) {
+                    expresionPrefija += simbolo;
+                    
+                } else {
+                                  
+                    if (simbolo == ')' || simbolo == ']') {
+                        pila.push(simbolo);
+                        
+                    } else if (simbolo == '(' || simbolo == '[') {
+                        while (!pila.isEmpty() && ((pila.peek() != ')' && pila.peek() != ']'))) {
+                            char elemento = pila.pop();
+                            expresionPrefija += elemento;
+                            
+                        }
+                        
+                        if (!pila.isEmpty() && ((pila.peek() == ')' || pila.peek() == ']'))) {
+                            pila.pop(); // Elimina el ')' o ']'
+                            
+                        }
+                        
+                    } else {
+                        if(!pila.isEmpty()){
+                            if(precedencia(simbolo, pila.peek())){
+                                pila.push(simbolo);
+
+                            }else{
+                                char elemento = pila.pop(); 
+                                expresionPrefija += elemento;
+                                pila.push(simbolo);
+                                
+                            }  
+                            
+                        }else{
+                            pila.push(simbolo);
+                        }
+                    }
+
+                }
+            }
+            
+            while (!pila.isEmpty()) {
+                char elemento = pila.pop();
+                expresionPrefija += elemento;
+            }            
+            
+            for(int i = expresionPrefija.length()-1; i>=0; i--){
+                expresionInvertida += ""+expresionPrefija.charAt(i);
+            }
+            expresionPrefija = expresionInvertida; 
+            
+            JOptionPane.showMessageDialog(null,"Expresion Prefija:"+ expresionPrefija);
+            return true;
+               
+        }      
         return false;
     }
     
+    //Para escalabilidad, aumentar si se desea agregar más de 4 variables:
+    public int contarVariables(){
+        boolean contA = false, contB = false, contC = false, contD = false, contE = false, contF = false;
+        numVariables = 0;
+        
+        for(int i=0; i<expresionPrefija.length(); i++){
+            switch(expresionPrefija.charAt(i)){
+                case'a' -> {
+                    contA = true;
+                }
+                case 'b' -> {
+                    contB = true;
+                }
+                case 'c' -> {
+                    contC = true;
+                }
+                case 'd' -> {
+                    contD = true;
+                } 
+                
+                case 'e' -> {
+                    contE = true;
+                }
+                
+                case 'f' -> {
+                    contF = true;
+                }
+            }            
+        }
+        
+        if(contA){
+            numVariables++;
+        }
+        
+        if(contB){
+            numVariables++;
+        }
+        
+        if(contC){
+            numVariables++;
+        }
+        
+        if(contD){
+            numVariables++;
+        }
+        
+        if(contE){
+            numVariables++;
+        }
+        
+        if(contF){
+            numVariables++;
+        }
+        
+        return numVariables;
+    }   
+    
     //------------------------ Imprimir Tabla de Verdad -------------------------
     
-    public  void imprimirTabla(ArrayList<Boolean> variables, JTextArea areaTexto, String texto){
-        numVariables = variables.size();
-        numOperaciones = (int) Math.pow(2, numVariables);
-        
-        switch(variables.size()){
+    public void resolverPorCaso(JTextArea areaTexto){
+              
+        switch(numVariables){
             case 1:{
-                variables.set(0, false);
+                boolean var1 = false;
                 areaTexto.append("Tabla Logica\n");
 
                 for(int i = 0; i<2; i++){ 
-                    a = variables.get(0);
-                    areaTexto.append(""+binario(variables.get(0))+"\t"+binario(resolverExpresion(texto, variables))+"\n");
-                    variables.set(0, !variables.get(0));
-
+                    areaTexto.append(""+binario(var1)+"\t"+binario(resolverUnaVariable(var1))+"\n");
+                    var1 = !var1;
                 }
                 
-                
                 break;
-            
             }
             
-            case 2:{
-                variables.set(0, false);
-                variables.set(1, false);
+            case 2:{                
+                boolean var1 = false;
+                boolean var2 = false;
                 
                 areaTexto.append("Tabla Logica\n");
-
-                for(int i = 0; i<numOperaciones/2; i++){ 
-                    for(int j = 0; j<numOperaciones/2; j++){
-                        a = variables.get(0);
-                        b = variables.get(1);
-                        areaTexto.append(""+binario(variables.get(0))+"\t"+binario(variables.get(1))+"\t"
-                                +binario(resolverExpresion(texto, variables))
+                
+                for(int i = 0; i<2; i++){ 
+                    for(int j = 0; j<2; j++){
+                       
+                        areaTexto.append(""+binario(var1)+"\t"+binario(var2)+"\t"
+                                +binario(resolverDosVariables(var1, var2))
                                 +"\n");
-                        variables.set(1, !variables.get(1));
+                        var2 = !var2;
                     }
-                    variables.set(0, !variables.get(0));  
+                    var1= !var1;  
                     
                 }
                 
                 break;
-            
             }
             
             case 3:{
-                variables.set(0, false);
-                variables.set(1, false);
-                variables.set(2, false);
+                boolean var1 = false;
+                boolean var2 = false;
+                boolean var3 = false;
+                
                 areaTexto.append("Tabla Logica\n");
                 for(int k = 0; k<2; k++){ 
                     for(int i = 0; i<2; i++){ 
                         for(int j = 0; j<2; j++){
-                            a = variables.get(0);
-                            b = variables.get(1);
-                            c = variables.get(2);
+                            
                             areaTexto.append(""
-                                    +binario(variables.get(0))+"\t"+binario(variables.get(1))+"\t"+binario(variables.get(2))
-                                    +"\t"+binario(resolverExpresion(texto, variables))+"\n");
-                            variables.set(2, !variables.get(2)); 
+                                    +binario(var1)+"\t"+binario(var2)+"\t"+binario(var3)
+                                    +"\t"+binario(resolverTresVariables(var1, var2, var3))+"\n");
+                            var3 = !var3; 
                         }
-                        variables.set(1, !variables.get(1)); 
-
+                        var2 = !var2; 
                     }
-                    variables.set(0, !variables.get(0)); 
-
+                    var1 = !var1; 
                 }
-                break;
-            
+                break; 
             }
             
-             case 4:{
-                variables.set(0, false);
-                variables.set(1, false);
-                variables.set(2, false);
-                variables.set(3, false);
+            case 4:{
+                boolean var1 = false;
+                boolean var2 = false;
+                boolean var3 = false;
+                boolean var4 = false;
+                
                 areaTexto.append("Tabla Logica\n");
                 for(int l = 0; l<2; l++){ 
                     for(int k = 0; k<2; k++){ 
                         for(int i = 0; i<2; i++){ 
                             for(int j = 0; j<2; j++){
-                                a = variables.get(0);
-                                b = variables.get(1);
-                                c = variables.get(2);
-                                d = variables.get(3);
                                 
                                 areaTexto.append(""
-                                    +binario(variables.get(0))+"\t"+binario(variables.get(1))+"\t"+binario(variables.get(2))+
-                                    "\t"+binario(variables.get(3))+"\t"+binario(resolverExpresion(texto, variables))+
+                                    +binario(var1)+"\t"+binario(var2)+"\t"+binario(var3)+
+                                    "\t"+binario(var4)+"\t"+binario(resolverCuatroVariables(var1,var2,var3,var4))+
                                     "\n");
                                 
-                                variables.set(3, !variables.get(3)); 
+                                var4 = !var4; 
                             }
-                            variables.set(2, !variables.get(2));   
-
+                            var3 = !var3;   
                         }
-                        variables.set(1, !variables.get(1));  
-
+                        var2 = !var2;   
                     }
-                    variables.set(0, !variables.get(0));   
+                    var1 = !var1;    
                 }
                 break;
+                
+            }  
             
-            }            
-        }  
+            case 5:{
+                boolean var1 = false;
+                boolean var2 = false;
+                boolean var3 = false;
+                boolean var4 = false;
+                boolean var5 = false;
+                
+                areaTexto.append("Tabla Logica\n");
+                for(int l = 0; l<2; l++){ 
+                    for(int k = 0; k<2; k++){ 
+                        for(int i = 0; i<2; i++){ 
+                            for(int j = 0; j<2; j++){
+                                for(int m = 0; m<2; m++){
+                                    areaTexto.append(""
+                                        +binario(var1)+"\t"+binario(var2)+"\t"+binario(var3)+
+                                        "\t"+binario(var4)+"\t"+binario(var5)+"\t"+binario(resolverCincoVaribles(var1,var2,var3,var4, var5))+
+                                        "\n");
+                                    
+                                    var5 = !var5; 
+                                }
+                                var4 = !var4; 
+                            }
+                            var3 = !var3;   
+                        }
+                        var2 = !var2;   
+                    }
+                    var1 = !var1;    
+                }
+                break;
+                
+            }  
+            
+            case 6:{
+                boolean var1 = false;
+                boolean var2 = false;
+                boolean var3 = false;
+                boolean var4 = false;
+                boolean var5 = false;
+                boolean var6 = false;
+                
+                areaTexto.append("Tabla Logica\n");
+                for(int l = 0; l<2; l++){ 
+                    for(int k = 0; k<2; k++){ 
+                        for(int i = 0; i<2; i++){ 
+                            for(int j = 0; j<2; j++){
+                                for(int m = 0; m<2; m++){
+                                    areaTexto.append(""
+                                        +binario(var1)+"\t"+binario(var2)+"\t"+binario(var3)+
+                                        "\t"+binario(var4)+"\t"+binario(var5)+"\t"+binario(var6)+"\t"+
+                                            binario(resolverSeisVaribles(var1,var2,var3,var4, var5, var6))+
+                                        "\n");
+                                    
+                                    var5 = !var5; 
+                                }
+                                var4 = !var4; 
+                            }
+                            var3 = !var3;   
+                        }
+                        var2 = !var2;   
+                    }
+                    var1 = !var1;    
+                }
+                break;
+                
+            }  
+            
+        }
+        
+        reiniciarComponentes();
+        
+    }    
+    
+    //Resolver para 1 varaible:
+    public boolean resolverUnaVariable(boolean var1) {
+        Stack<Boolean> solucion = new Stack();
+
+        for (int i = expresionPrefija.length() - 1; i>=0; i--) {
+            char simbolo = expresionPrefija.charAt(i);
+            
+            if(!esOperador(simbolo)){
+                solucion.push(var1);
+            
+            } else if(simbolo == '¬'){
+                boolean operand1 = solucion.pop();
+                boolean respuesta = operar(simbolo, operand1, operand1);
+                solucion.push(respuesta);
+                
+            }else{
+                boolean operand2 = solucion.pop();
+                boolean operand1 = solucion.pop();
+
+                boolean respuesta = operar(simbolo, operand1, operand2);
+                solucion.push(respuesta);
+            }
+            
+        }
+        return solucion.pop();
     }
     
-    public void miau(){/*
-        //Falta Completar, probar, validar, implementar, ver si funciona, todo:
-        public Boolean evaluarPares(String texto, int iterador){
-            String regexChar = "[abcd]";
-            String regexOperador = "[abcd][∧∨↑↓⊕⊙][abcd]";
-            String regexNegacion = "[¬][abcd]";
-            String regexAgrupacion = "[([{}])]";
-
-            Pattern pChar = Pattern.compile(regexChar);
-            Pattern pOperador = Pattern.compile(regexOperador);
-            Pattern pNegacion = Pattern.compile(regexNegacion);
-            Pattern pAgrupacion = Pattern.compile(regexAgrupacion);
-
-            Matcher mChar = pChar.matcher(texto);
-            Matcher mOperador = pOperador.matcher(texto);
-            Matcher mNegacion = pNegacion.matcher(texto);
-            Matcher mAgrupacion = pAgrupacion.matcher(texto);
-
-
-            if(mNegacion.find()){
-                return !Boolean.valueOf(""+pNegacion.toString().charAt(iterador+1));
-
-            }else if(mOperador.find()){
-                switch(mOperador.toString().charAt(iterador+1)){
-                    case '∧':{
-                        return and(Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador)),Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador+2)));
-                    }
-
-                    case '∨':{
-                        return or(Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador)),Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador+2)));
-                    }
-
-                    case '↑':{
-                        return nand(Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador)),Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador+2)));
-                    }
-
-                    case '↓':{
-                        return nor(Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador)),Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador+2)));
-                    }
-
-                    case '⊕':{
-                        return xor(Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador)),Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador+2)));
-                    }
-
-                    case '⊙':{
-                        return xnor(Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador)),Boolean.parseBoolean(""+pNegacion.toString().charAt(iterador+2)));
-                    }
+    //Resolver para 2 varaibles:
+    public boolean resolverDosVariables(boolean var1, boolean var2) {
+        Stack<Boolean> solucion = new Stack();
+        char op1 ='q', op2='q';
+        
+        //Asignar una letra segun el orden
+        for (int i = 0; i < expresionPrefija.length() - 1; i++) {
+            char simbolo = expresionPrefija.charAt(i);
+            if(!esOperador(simbolo)){
+                if(op1 == 'q'){
+                    op1 = simbolo;
+                
+                }else if(op2 == 'q'){
+                    op2 = simbolo;
+                    
                 }
-
-            }else if(mChar.find()){
-                return Boolean.valueOf(mChar.toString());
-
-            }else if(mAgrupacion.find()){
-
-            }else{
-                JOptionPane.showMessageDialog(null, "Operador desconocido: "+texto.charAt(iterador));
-                return null;
             }
-
-            return null;
-
         }
-    */
-    } 
+        
+        //Resolver la expresion usando pilas
+        for (int i = expresionPrefija.length() - 1; i>=0; i--) {
+            char simbolo = expresionPrefija.charAt(i);
+            
+            if(!esOperador(simbolo)){
+                if(op2 == 'q'){
+                    op2 = simbolo;
+                    solucion.push(var2);
+                    
+                }else if(op2 == simbolo){
+                    solucion.push(var2);
+                    
+                }else if(op1 == 'q'){
+                    op1 = simbolo;
+                    solucion.push(var1);
+                    
+                }else if(op1 == simbolo){
+                    solucion.push(var1);
+                    
+                }
+                
+            
+            } else if(simbolo == '¬'){
+                boolean operand1 = solucion.pop();
+                boolean respuesta = operar(simbolo, operand1, operand1);
+                solucion.push(respuesta);
+                
+            }else{
+                boolean operand1 = solucion.pop();
+                boolean operand2 = solucion.pop();
+
+                boolean respuesta = operar(simbolo, operand1, operand2);
+                solucion.push(respuesta);
+            }
+            
+        }
+        return solucion.pop();
+    }
+    
+    //Resolver para 3 varaibles:
+    public boolean resolverTresVariables(boolean var1, boolean var2, boolean var3) {
+        Stack<Boolean> solucion = new Stack();
+        char op1 ='q', op2='q', op3 = 'q';
+        
+        //Asignar una letra segun el orden
+        for (int i = 0; i < expresionPrefija.length() - 1; i++) {
+            char simbolo = expresionPrefija.charAt(i);
+            if(!esOperador(simbolo)){
+                if(op1 == 'q'){
+                    op1 = simbolo;
+                
+                }else if(op2 == 'q'){
+                    op2 = simbolo;
+                    
+                }else if(op3 == 'q'){
+                    op3 = simbolo;
+                    
+                }
+            }
+        }
+        
+        for (int i = expresionPrefija.length() - 1; i>=0; i--) {
+            char simbolo = expresionPrefija.charAt(i);
+            
+            if(!esOperador(simbolo)){
+                if(op3 == 'q'){
+                    op3 = simbolo;
+                    solucion.push(var3);
+                    
+                }else if(op3 == simbolo){
+                    solucion.push(var3);
+                    
+                }else if(op2 == 'q'){
+                    op2 = simbolo;
+                    solucion.push(var2);
+                    
+                }else if(op2 == simbolo){
+                    solucion.push(var2);
+                    
+                }else if(op1 == 'q'){
+                    op1 = simbolo;
+                    solucion.push(var1);
+                    
+                }else if(op1 == simbolo){
+                    solucion.push(var1);
+                }                
+                
+            } else if(simbolo == '¬'){
+                boolean operand1 = solucion.pop();
+                boolean respuesta = operar(simbolo, operand1, operand1);
+                solucion.push(respuesta);
+                
+            }else{
+                boolean operand1 = solucion.pop();
+                boolean operand2 = solucion.pop();
+
+                boolean respuesta = operar(simbolo, operand1, operand2);
+                solucion.push(respuesta);
+            }
+            
+        }
+        return solucion.pop();
+    }
+    
+    //Resolver para 4 varaibles:
+    public boolean resolverCuatroVariables(boolean var1, boolean var2, boolean var3, boolean var4) {
+        Stack<Boolean> solucion = new Stack();
+        char op1 ='q', op2='q', op3 = 'q', op4 = 'q';
+        
+        
+        //Asignar una letra segun el orden
+        for (int i = 0; i < expresionPrefija.length() - 1; i++) {
+            char simbolo = expresionPrefija.charAt(i);
+            if(!esOperador(simbolo)){
+                if(op1 == 'q'){
+                    op1 = simbolo;
+                
+                }else if(op2 == 'q'){
+                    op2 = simbolo;
+                    
+                }else if(op3 == 'q'){
+                    op3 = simbolo;
+                    
+                }else if(op4 == 'q'){
+                    op4 = simbolo;
+                    
+                }
+            }
+        }
+        
+        for (int i = expresionPrefija.length() - 1; i>=0; i--) {
+            char simbolo = expresionPrefija.charAt(i);
+            
+            if(!esOperador(simbolo)){
+                if(op4 == 'q'){
+                    op4 = simbolo;
+                    solucion.push(var4);
+                    
+                }else if(op4 == simbolo){
+                    solucion.push(var4);
+                    
+                }else if(op3 == 'q'){
+                    op3 = simbolo;
+                    solucion.push(var3);
+                    
+                }else if(op3 == simbolo){
+                    solucion.push(var3);
+                    
+                }else if(op2 == 'q'){
+                    op2 = simbolo;
+                    solucion.push(var2);
+                    
+                }else if(op2 == simbolo){
+                    solucion.push(var2);
+                    
+                }else if(op1 == 'q'){
+                    op1 = simbolo;
+                    solucion.push(var2);
+                    
+                }else if(op1 == simbolo){
+                    solucion.push(var1);
+                    
+                }               
+                            
+            } else if(simbolo == '¬'){
+                boolean operand1 = solucion.pop();
+                boolean respuesta = operar(simbolo, operand1, operand1);
+                solucion.push(respuesta);
+                
+            }else{
+                boolean operand1 = solucion.pop();
+                boolean operand2 = solucion.pop();
+
+                boolean respuesta = operar(simbolo, operand1, operand2);
+                solucion.push(respuesta);
+            }
+            
+        }
+        return solucion.pop();
+    }
+     
+    //Resolver para 5 varaibles:
+    public boolean resolverCincoVaribles(boolean var1, boolean var2, boolean var3, boolean var4, boolean var5) {
+        Stack<Boolean> solucion = new Stack();
+        char op1 ='q', op2='q', op3 = 'q', op4 = 'q', op5 ='q';
+        
+        
+        //Asignar una letra segun el orden
+        for (int i = 0; i < expresionPrefija.length() - 1; i++) {
+            char simbolo = expresionPrefija.charAt(i);
+            if(!esOperador(simbolo)){
+                if(op1 == 'q'){
+                    op1 = simbolo;
+                
+                }else if(op2 == 'q'){
+                    op2 = simbolo;
+                    
+                }else if(op3 == 'q'){
+                    op3 = simbolo;
+                    
+                }else if(op4 == 'q'){
+                    op4 = simbolo;
+                    
+                }else if(op5 == 'q'){
+                    op5 = simbolo;
+                    
+                }
+            }
+        }
+        
+        for (int i = expresionPrefija.length() - 1; i>=0; i--) {
+            char simbolo = expresionPrefija.charAt(i);
+            
+            if(!esOperador(simbolo)){
+                if(op5 == 'q'){
+                    op5 = simbolo;
+                    solucion.push(var5);
+                    
+                }else if(op5 == simbolo){
+                    solucion.push(var5);
+                    
+                }else if(op4 == 'q'){
+                    op4 = simbolo;
+                    solucion.push(var4);
+                    
+                }else if(op4 == simbolo){
+                    solucion.push(var4);
+                    
+                }else if(op3 == 'q'){
+                    op3 = simbolo;
+                    solucion.push(var3);
+                    
+                }else if(op3 == simbolo){
+                    solucion.push(var3);
+                    
+                }else if(op2 == 'q'){
+                    op2 = simbolo;
+                    solucion.push(var2);
+                    
+                }else if(op2 == simbolo){
+                    solucion.push(var2);
+                    
+                }else if(op1 == 'q'){
+                    op1 = simbolo;
+                    solucion.push(var2);
+                    
+                }else if(op1 == simbolo){
+                    solucion.push(var1);
+                    
+                }               
+                            
+            } else if(simbolo == '¬'){
+                boolean operand1 = solucion.pop();
+                boolean respuesta = operar(simbolo, operand1, operand1);
+                solucion.push(respuesta);
+                
+            }else{
+                boolean operand1 = solucion.pop();
+                boolean operand2 = solucion.pop();
+
+                boolean respuesta = operar(simbolo, operand1, operand2);
+                solucion.push(respuesta);
+            }
+            
+        }
+        return solucion.pop();
+    }
+    
+    //Resolver para 6 varaibles:
+    public boolean resolverSeisVaribles(boolean var1, boolean var2, boolean var3, boolean var4, boolean var5, boolean var6) {
+        Stack<Boolean> solucion = new Stack();
+        char op1 ='q', op2='q', op3 = 'q', op4 = 'q', op5 ='q', op6='q';
+        
+        
+        //Asignar una letra segun el orden
+        for (int i = 0; i < expresionPrefija.length() - 1; i++) {
+            char simbolo = expresionPrefija.charAt(i);
+            if(!esOperador(simbolo)){
+                if(op1 == 'q'){
+                    op1 = simbolo;
+                
+                }else if(op2 == 'q'){
+                    op2 = simbolo;
+                    
+                }else if(op3 == 'q'){
+                    op3 = simbolo;
+                    
+                }else if(op4 == 'q'){
+                    op4 = simbolo;
+                    
+                }else if(op5 == 'q'){
+                    op5 = simbolo;
+                    
+                }else if(op6 == 'q'){
+                    op6 = simbolo;
+                    
+                }
+            }
+        }
+        
+        for (int i = expresionPrefija.length() - 1; i>=0; i--) {
+            char simbolo = expresionPrefija.charAt(i);
+            
+            if(!esOperador(simbolo)){
+                if(op6 == 'q'){
+                    op6 = simbolo;
+                    
+                }else if(op6 == simbolo){
+                    solucion.push(var6);
+                    
+                }else if(op5 == 'q'){
+                    op5 = simbolo;
+                    solucion.push(var5);
+                    
+                }else if(op5 == simbolo){
+                    solucion.push(var5);
+                    
+                }else if(op4 == 'q'){
+                    op4 = simbolo;
+                    solucion.push(var4);
+                    
+                }else if(op4 == simbolo){
+                    solucion.push(var4);
+                    
+                }else if(op3 == 'q'){
+                    op3 = simbolo;
+                    solucion.push(var3);
+                    
+                }else if(op3 == simbolo){
+                    solucion.push(var3);
+                    
+                }else if(op2 == 'q'){
+                    op2 = simbolo;
+                    solucion.push(var2);
+                    
+                }else if(op2 == simbolo){
+                    solucion.push(var2);
+                    
+                }else if(op1 == 'q'){
+                    op1 = simbolo;
+                    solucion.push(var2);
+                    
+                }else if(op1 == simbolo){
+                    solucion.push(var1);
+                    
+                }               
+                            
+            } else if(simbolo == '¬'){
+                boolean operand1 = solucion.pop();
+                boolean respuesta = operar(simbolo, operand1, operand1);
+                solucion.push(respuesta);
+                
+            }else{
+                boolean operand1 = solucion.pop();
+                boolean operand2 = solucion.pop();
+
+                boolean respuesta = operar(simbolo, operand1, operand2);
+                solucion.push(respuesta);
+            }
+            
+        }
+        return solucion.pop();
+    }
+      
+    
+    public boolean operar(char operador, boolean valor1, boolean valor2){   
+        
+        switch (operador) {
+            case '¬' -> {
+                return !valor1;
+            }
+            case '∧' -> {
+                return and(valor1, valor2);
+            }
+            case '∨' -> {
+                return or(valor1, valor2);
+            }
+            case '↑', '↓' -> {
+                return nor(valor1, valor2);
+            }
+            case '⊕' -> {
+                return xor(valor1, valor2);
+            }
+            case '⊙' -> {
+                return xnor(valor1, valor2);
+            }
+            default -> throw new IllegalArgumentException("Operador no válido: " + operador);                
+        }
+    }
     
     //---------------------------------------------------------------------------------
+    
+    
+    public boolean esOperador(char letra) {
+        boolean retorno = false;
+        switch(letra){
+            case '¬': //not
+            case '∧': //and
+            case '∨': //or
+            case '↑': //nand
+            case '↓': //nor
+            case '⊕': //xor
+            case '⊙': //xnor 
+            case '(':
+            case ')':
+            case '[':
+            case ']': retorno = true;
+            break; 
+                
+        }
+        return retorno;
+    } 
+    
+     public int getPrecedencia(char op) {
+        switch (op) {
+            case '¬': //not
+                return 3;
+            case '∧': //and
+            case '∨': //or
+                return 2;
+            case '↑': //nand
+            case '↓': //nor
+            case '⊕': //xor
+            case '⊙': //xnor
+                return 1;
+            default:
+                return 0;
+        }
+    }
+    
+    public boolean precedencia(char op, char op2){
+        int prec1 = getPrecedencia(op);
+        int prec2 = getPrecedencia(op2);
+        
+        return prec1 >= prec2;
+    }
+     
+    public boolean verificarAgrupacion(String texto){
+        int cont = 0;
+        Stack<Character> parentesis = new Stack();
+        Stack<Character> corchetes = new Stack();
+        
+        for(int i=0; i<texto.length(); i++){
+            switch (texto.charAt(i)) {
+                case '(':
+                    parentesis.push('(');
+                    cont++;
+                    break;
+                    
+                case ')':
+                    if(parentesis.isEmpty()){
+                        break;
+                    }else{
+                        parentesis.pop();
+                    }
+                    cont--;
+                    break;
+                    
+                case '[':
+                    corchetes.push('[');
+                    cont++;
+                    break;
+                    
+                case ']':                    
+                    if(corchetes.isEmpty()){
+                        break;
+                    }else{
+                        corchetes.pop();
+                    }
+                    cont--;
+                    break;
+                    
+                default:
+                    break;
+                
+            }
+            
+        } 
+        
+        return ((parentesis.isEmpty() == true) && (corchetes.isEmpty() == true) && (cont == 0));
+        
+    }
+    
+    
+    public void reiniciarComponentes(){
+        this.expresionPrefija = "";
+        this.funcionInfija = "";
+        this.numVariables = 0;  
+    }
+    
+    public int getNumVariables() {
+        return numVariables;
+    }
+
+    public void setNumVariables(int numVariables) {
+        this.numVariables = numVariables;
+    }
+   
+    public String getFuncionInfija() {
+        return funcionInfija;
+    }
+
+    public void setFuncionInfija(String funcionInfija) {
+        this.funcionInfija = funcionInfija;
+    }
+
+    public String getExpresionPrefija() {
+        return expresionPrefija;
+    }
+
+    public void setExpresionPrefija(String expresionPrefija) {
+        this.expresionPrefija = expresionPrefija;
+    }
+
     
     
     /*
@@ -268,137 +933,6 @@ public class Operador {
         
            
     */
-    public boolean resolverExpresion(String expresion, ArrayList<Boolean> var) {
-        Stack<Boolean> variables = new Stack<>();
-        Stack<Character> operadores = new Stack<>();
-        
-        for(int j=0; j<var.size(); j++){
-            switch(j){
-                case 0:{
-                    a = var.get(j);
-                    break;
-                }
-
-                case 1:{
-                    b = var.get(j);
-                    break;
-                }
-
-                case 2:{
-                    c = var.get(j);
-                    break;
-                }
-
-                case 3:{
-                    d = var.get(j);
-                    break;
-                }
-            }
-        }
-        
-        for (int i = 0; i < expresion.length(); i++) {
-            char letra = expresion.charAt(i);
-            
-            if (Character.isAlphabetic(letra) && (letra == 'a' || letra == 'b' || letra == 'c' || letra == 'd')) {
-                StringBuilder variable = new StringBuilder();
-                
-                while (i < expresion.length() && (Character.isAlphabetic(expresion.charAt(i)))) {
-                    variable.append(expresion.charAt(i));
-                    i++;
-                }
-                
-                
-                variables.push(Boolean.parseBoolean(variable.toString()));
-                i--;
-                
-            } else if (letra == '(' || letra == '[') {
-                operadores.push(letra);
-                
-            } else if (letra == ')' || letra == ']') {
-                while (!operadores.isEmpty() && operadores.peek() != '(' && operadores.peek() != '[') {
-                    calcularOperacion(variables, operadores);
-                    
-                }
-                
-                operadores.pop(); // Eliminar el paréntesis o corchete abierto
-                
-            } else if (esOperador(letra)) {
-                while (!operadores.isEmpty() && precedencia(operadores.peek(), letra)) {
-                    calcularOperacion(variables, operadores);
-                    
-                }
-                
-                operadores.push(letra);
-            }
-        }
-
-        while (!operadores.isEmpty()) {
-            calcularOperacion(variables, operadores);
-        }
-
-        return variables.pop();
-    }
-
-    public boolean esOperador(char letra) {
-        return letra == '¬' || letra == '∧' || letra == '∨' || letra == '↑' || letra == '↓' || letra == '⊕' || letra == '⊙';
-    }
-
-    public boolean precedencia(char op1, char op2) {
-        if ((op1 == '¬' ) && (op2 == '∧' || op2 == '∨' || op2 == '↑' || op2 == '↓' || op2 == '⊕' || op2 == '⊙')) {
-            return true;
-        }
-        
-        if ((op1 == '∧' || op1 == '∨') && (op2 == '↑' || op2 == '↓' || op2 == '⊕' || op2 == '⊙')) {
-            return true;
-        }
-        
-        if ((op1 == '↑' || op1 == '↓') && (op2 == '⊕' || op2 == '⊙')) {
-            return true;
-        }
-        return false;
-    }
-
-    public void calcularOperacion(Stack<Boolean> variables, Stack<Character> operadores) {
-        char operador = operadores.pop();
-        boolean valor1 = variables.pop();
-        boolean valor2;
-        boolean resultado = true;
-
-        switch (operador) {
-            case '¬':
-                resultado = !valor1;
-                break; 
-            case '∧':
-                valor2 = variables.pop();
-                resultado = valor1 && valor2;
-                break;
-            case '∨':
-                valor2 = variables.pop();
-                resultado = or(valor1, valor2);
-                break;
-            case '↑':
-                valor2 = variables.pop();
-                resultado = nand(valor1, valor2);
-                break;
-            case '↓':
-                valor2 = variables.pop();
-                resultado = nor(valor1, valor2);
-                break;
-            case '⊕':
-                valor2 = variables.pop();
-                resultado = xor(valor1, valor2);
-                break;
-            case '⊙':
-                valor2 = variables.pop();
-                resultado = xnor(valor1, valor2);
-                break;  
-            
-                
-        }
-
-        variables.push(resultado);
-    }
-    
     
     
     

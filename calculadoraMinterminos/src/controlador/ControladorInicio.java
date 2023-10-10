@@ -16,25 +16,19 @@ import modelo.Operador;
 public class ControladorInicio {
     protected frmInicio inicio;
     private String texto;
-    private Operador operador;
-    private boolean a = false,b = false, c = false, d = false;
-    private ArrayList<Boolean> variables;
+    private Operador operador;   
     
     public ControladorInicio (frmInicio inicio){
         this.inicio = inicio;
         this.texto = "";
-        this.operador = new Operador(inicio.txtTabla);
-        this.variables = new ArrayList();
-        
-        
-        
+        this.operador = new Operador(inicio.txtTabla, inicio.lblCircuito);
+               
         //------------------------------------------ Agregar variables:
         this.inicio.btnA.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
                 texto = inicio.lblCircuito.getText();
-                inicio.lblCircuito.setText(texto+"a");
-                a = true;
+                inicio.lblCircuito.setText(texto+"a");                
                 
             }
         });
@@ -43,8 +37,7 @@ public class ControladorInicio {
             @Override
             public void actionPerformed(ActionEvent e) {
                 texto = inicio.lblCircuito.getText();
-                inicio.lblCircuito.setText(texto+"b");  
-                b = true;
+                inicio.lblCircuito.setText(texto+"b");                 
             }
         });
         
@@ -52,8 +45,7 @@ public class ControladorInicio {
             @Override
             public void actionPerformed(ActionEvent e) {
                 texto = inicio.lblCircuito.getText();
-                inicio.lblCircuito.setText(texto+"c");
-                c = true;
+                inicio.lblCircuito.setText(texto+"c");               
             }
         });
         
@@ -61,8 +53,23 @@ public class ControladorInicio {
             @Override
             public void actionPerformed(ActionEvent e) {
                 texto = inicio.lblCircuito.getText();
-                inicio.lblCircuito.setText(texto+"d");
-                d = true;
+                inicio.lblCircuito.setText(texto+"d");               
+            }
+        });
+        
+        this.inicio.btnE.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                texto = inicio.lblCircuito.getText();
+                inicio.lblCircuito.setText(texto+"e");               
+            }
+        });
+        
+        this.inicio.btnF.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                texto = inicio.lblCircuito.getText();
+                inicio.lblCircuito.setText(texto+"f");               
             }
         });
         
@@ -162,15 +169,18 @@ public class ControladorInicio {
             @Override
             public void actionPerformed(ActionEvent e) {
                 inicio.txtTabla.setText("");
-                if(verificarAgrupacion(inicio.lblCircuito.getText())==true){
-                    llenarLista();                
-                    operador.imprimirTabla(variables, inicio.txtTabla, inicio.lblCircuito.getText());
+                operador.setFuncionInfija(inicio.lblCircuito.getText());
+                if(operador.verificarAgrupacion(operador.getFuncionInfija())==true){
+
+                    operador.generarPrefija();                     
+                    operador.contarVariables();
+                    operador.resolverPorCaso(inicio.txtTabla);                    
                     inicio.txtTabla.append("\n");
-                    
-                    vaciarLista();
+ 
                 }else{
                     JOptionPane.showMessageDialog(null, "Error: Verifique el balanceo de los signos de agrupación.");
                 }
+                
                 
             }
         });
@@ -191,7 +201,7 @@ public class ControladorInicio {
             public void actionPerformed(ActionEvent e) {
                 if(inicio.lblCircuito.getText().length() >0){
                    inicio.lblCircuito.setText("");
-                   vaciarLista();
+  
                 }
                 
             }
@@ -209,103 +219,8 @@ public class ControladorInicio {
         this.inicio.txtTabla.setText("");
         this.inicio.txtTabla.setEditable(false);
     }
-        
-    public void llenarLista(){
-        if(this.a == true){
-            variables.add(a);
-            this.a = false;
-        }
-        
-        if(this.b == true){
-            variables.add(b);
-            this.b = false;
-        }else{
-        }
-        
-        if(this.c == true){
-            variables.add(c);
-            this.c = false;
-        }else{
-        }
-        
-        if(this.d == true){
-            variables.add(d);  
-            this.d = false;
-        }else{
-        }
-    }
-    
-     public void vaciarLista(){
-        for(int i = variables.size()-1; i == 0; i--){            
-            variables.remove(i);            
-        }
-        variables.remove(a);
-        variables.remove(b);
-        variables.remove(c);
-        variables.remove(d);
-
-        this.a = false;
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        
-    }
-    
      
-    public boolean verificarAgrupacion(String texto){
-        int cont = 0;
-        Stack<Character> parentesis = new Stack();
-        Stack<Character> corchetes = new Stack();
         
-        for(int i=0; i<texto.length(); i++){
-            switch (texto.charAt(i)) {
-                case '(':
-                    parentesis.push('(');
-                    cont++;
-                    break;
-                    
-                case ')':
-                    if(parentesis.isEmpty()){
-                        break;
-                    }else{
-                        parentesis.pop();
-                    }
-                    cont--;
-                    break;
-                    
-                case '[':
-                    corchetes.push('[');
-                    cont++;
-                    break;
-                    
-                case ']':                    
-                    if(corchetes.isEmpty()){
-                        break;
-                    }else{
-                        corchetes.pop();
-                    }
-                    cont--;
-                    break;
-                    
-                default:
-                    break;
-                
-            }
-            
-        } 
-        
-        return ((parentesis.isEmpty() == true) && (corchetes.isEmpty() == true) && (cont == 0));
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     //------------------------------------------ Get & Set ------------------------------------
     
     public String getTexto() {
