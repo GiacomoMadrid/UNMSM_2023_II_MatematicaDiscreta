@@ -202,7 +202,7 @@ public class Operador {
         switch(numVariables){
             case 1:{
                 boolean var1 = false;
-                areaTexto.append("Tabla Logica\n");
+                areaTexto.append("Tabla Logica:\n\n");
 
                 for(int i = 0; i<2; i++){ 
                     areaTexto.append(""+binario(var1)+"\t"+binario(resolverUnaVariable(var1))+"\n");
@@ -216,7 +216,7 @@ public class Operador {
                 boolean var1 = false;
                 boolean var2 = false;
                 
-                areaTexto.append("Tabla Logica\n");
+                areaTexto.append("Tabla Logica:\n\n");
                 
                 for(int i = 0; i<2; i++){ 
                     for(int j = 0; j<2; j++){
@@ -238,7 +238,7 @@ public class Operador {
                 boolean var2 = false;
                 boolean var3 = false;
                 
-                areaTexto.append("Tabla Logica\n");
+                areaTexto.append("Tabla Logica:\n\n");
                 for(int k = 0; k<2; k++){ 
                     for(int i = 0; i<2; i++){ 
                         for(int j = 0; j<2; j++){
@@ -261,7 +261,7 @@ public class Operador {
                 boolean var3 = false;
                 boolean var4 = false;
                 
-                areaTexto.append("Tabla Logica\n");
+                areaTexto.append("Tabla Logica:\n\n");
                 for(int l = 0; l<2; l++){ 
                     for(int k = 0; k<2; k++){ 
                         for(int i = 0; i<2; i++){ 
@@ -291,7 +291,7 @@ public class Operador {
                 boolean var4 = false;
                 boolean var5 = false;
                 
-                areaTexto.append("Tabla Logica\n");
+                areaTexto.append("Tabla Logica:\n\n");
                 for(int l = 0; l<2; l++){ 
                     for(int k = 0; k<2; k++){ 
                         for(int i = 0; i<2; i++){ 
@@ -324,7 +324,7 @@ public class Operador {
                 boolean var5 = false;
                 boolean var6 = false;
                 
-                areaTexto.append("Tabla Logica\n");
+                areaTexto.append("Tabla Logica:\n\n");
                 for(int l = 0; l<2; l++){ 
                     for(int k = 0; k<2; k++){ 
                         for(int i = 0; i<2; i++){ 
