@@ -5,7 +5,7 @@
 package calculadoraminterminos;
 
 import controlador.ControladorInicio;
-import vista.frmInicio;        
+import vista.frmInicio;
 public class CalculadoraMinterminos {
 
     /**

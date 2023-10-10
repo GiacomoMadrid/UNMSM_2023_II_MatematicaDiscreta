@@ -47,6 +47,10 @@ public class Operador {
         return !((var1 && !var2) || (var2 && !var1));
     }
     
+    public boolean implica(boolean var1, boolean var2){
+        return (!var1 || var2);
+    }
+    
     //------------------------------------- Métodos --------------------------------
     
     public int binario(boolean valorDeVerdad){
@@ -788,6 +792,9 @@ public class Operador {
             case '⊙' -> {
                 return xnor(valor1, valor2);
             }
+            case '→' -> {
+                return implica(valor1, valor2);
+            }
             default -> throw new IllegalArgumentException("Operador no válido: " + operador);                
         }
     }
@@ -805,6 +812,7 @@ public class Operador {
             case '↓': //nor
             case '⊕': //xor
             case '⊙': //xnor 
+            case '→': //implica
             case '(':
             case ')':
             case '[':
@@ -826,6 +834,7 @@ public class Operador {
             case '↓': //nor
             case '⊕': //xor
             case '⊙': //xnor
+            case '→': //implica
                 return 1;
             default:
                 return 0;

@@ -132,6 +132,14 @@ public class ControladorInicio {
             }
         });
         
+        this.inicio.btnImplica.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                texto = inicio.lblCircuito.getText();
+                inicio.lblCircuito.setText(texto+"→");
+            }
+        });
+        
         //---------------------------------------- Agrupadores
         this.inicio.btnParentesisAbierto.addActionListener(new ActionListener(){
             @Override

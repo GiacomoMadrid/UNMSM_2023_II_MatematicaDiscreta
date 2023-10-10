@@ -56,10 +56,10 @@ public class frmInicio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnA = new javax.swing.JButton();
         btnD = new javax.swing.JButton();
+        btnImplica = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 800));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153), 4));
@@ -306,6 +306,16 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnImplica.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        btnImplica.setForeground(new java.awt.Color(0, 0, 102));
+        btnImplica.setText("implic");
+        btnImplica.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnImplica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImplicaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panBotonesLayout = new javax.swing.GroupLayout(panBotones);
         panBotones.setLayout(panBotonesLayout);
         panBotonesLayout.setHorizontalGroup(
@@ -334,7 +344,9 @@ public class frmInicio extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnNor, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
-                        .addComponent(btnXnor, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnXnor, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(btnImplica, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panBotonesLayout.createSequentialGroup()
                         .addComponent(btnNot, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -391,9 +403,14 @@ public class frmInicio extends javax.swing.JFrame {
                             .addComponent(btnNand, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panBotonesLayout.createSequentialGroup()
                         .addComponent(btnXor, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(btnXnor, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(14, 14, 14))
+                        .addGroup(panBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panBotonesLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(btnXnor, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panBotonesLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(btnImplica, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(15, 15, 15))
         );
 
         jLabel6.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
@@ -439,8 +456,8 @@ public class frmInicio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -452,7 +469,7 @@ public class frmInicio extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
         );
 
         pack();
@@ -538,6 +555,10 @@ public class frmInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnFActionPerformed
 
+    private void btnImplicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImplicaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnImplicaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -585,6 +606,7 @@ public class frmInicio extends javax.swing.JFrame {
     public javax.swing.JButton btnD;
     public javax.swing.JButton btnE;
     public javax.swing.JButton btnF;
+    public javax.swing.JButton btnImplica;
     public javax.swing.JButton btnNand;
     public javax.swing.JButton btnNor;
     public javax.swing.JButton btnNot;
