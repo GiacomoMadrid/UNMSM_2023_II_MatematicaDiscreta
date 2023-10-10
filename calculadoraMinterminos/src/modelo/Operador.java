@@ -89,6 +89,7 @@ public class Operador {
                     if (simbolo == ')' || simbolo == ']') {
                         pila.push(simbolo);
                         
+                        
                     } else if (simbolo == '(' || simbolo == '[') {
                         while (!pila.isEmpty() && ((pila.peek() != ')' && pila.peek() != ']'))) {
                             char elemento = pila.pop();
@@ -201,153 +202,174 @@ public class Operador {
               
         switch(numVariables){
             case 1:{
-                boolean var1 = false;
-                areaTexto.append("Tabla Logica:\n\n");
+                try{
+                    boolean var1 = false;
+                    areaTexto.append("Tabla Logica:\n\n");
 
-                for(int i = 0; i<2; i++){ 
-                    areaTexto.append(""+binario(var1)+"\t"+binario(resolverUnaVariable(var1))+"\n");
-                    var1 = !var1;
+                    for(int i = 0; i<2; i++){ 
+                        areaTexto.append(""+binario(var1)+"\t"+binario(resolverUnaVariable(var1))+"\n");
+                        var1 = !var1;
+                    }
+                }catch (Exception e){
+                    JOptionPane.showMessageDialog(null, "¡Error! Revise la sintaxis.");    
                 }
-                
                 break;
             }
             
             case 2:{                
-                boolean var1 = false;
-                boolean var2 = false;
-                
-                areaTexto.append("Tabla Logica:\n\n");
-                
-                for(int i = 0; i<2; i++){ 
-                    for(int j = 0; j<2; j++){
-                       
-                        areaTexto.append(""+binario(var1)+"\t"+binario(var2)+"\t"
-                                +binario(resolverDosVariables(var1, var2))
-                                +"\n");
-                        var2 = !var2;
+                try{
+                    boolean var1 = false;
+                    boolean var2 = false;
+
+                    areaTexto.append("Tabla Logica:\n\n");
+
+                    for(int i = 0; i<2; i++){ 
+                        for(int j = 0; j<2; j++){
+
+                            areaTexto.append(""+binario(var1)+"\t"+binario(var2)+"\t"
+                                    +binario(resolverDosVariables(var1, var2))
+                                    +"\n");
+                            var2 = !var2;
+                        }
+                        var1= !var1;  
+
                     }
-                    var1= !var1;  
-                    
+                    break;
+                }catch (Exception e){  
                 }
-                
-                break;
             }
             
             case 3:{
-                boolean var1 = false;
-                boolean var2 = false;
-                boolean var3 = false;
-                
-                areaTexto.append("Tabla Logica:\n\n");
-                for(int k = 0; k<2; k++){ 
-                    for(int i = 0; i<2; i++){ 
-                        for(int j = 0; j<2; j++){
-                            
-                            areaTexto.append(""
-                                    +binario(var1)+"\t"+binario(var2)+"\t"+binario(var3)
-                                    +"\t"+binario(resolverTresVariables(var1, var2, var3))+"\n");
-                            var3 = !var3; 
-                        }
-                        var2 = !var2; 
-                    }
-                    var1 = !var1; 
-                }
-                break; 
-            }
-            
-            case 4:{
-                boolean var1 = false;
-                boolean var2 = false;
-                boolean var3 = false;
-                boolean var4 = false;
-                
-                areaTexto.append("Tabla Logica:\n\n");
-                for(int l = 0; l<2; l++){ 
+                try{
+                    boolean var1 = false;
+                    boolean var2 = false;
+                    boolean var3 = false;
+
+                    areaTexto.append("Tabla Logica:\n\n");
                     for(int k = 0; k<2; k++){ 
                         for(int i = 0; i<2; i++){ 
                             for(int j = 0; j<2; j++){
-                                
+
                                 areaTexto.append(""
-                                    +binario(var1)+"\t"+binario(var2)+"\t"+binario(var3)+
-                                    "\t"+binario(var4)+"\t"+binario(resolverCuatroVariables(var1,var2,var3,var4))+
-                                    "\n");
-                                
-                                var4 = !var4; 
+                                        +binario(var1)+"\t"+binario(var2)+"\t"+binario(var3)
+                                        +"\t"+binario(resolverTresVariables(var1, var2, var3))+"\n");
+                                var3 = !var3; 
                             }
-                            var3 = !var3;   
+                            var2 = !var2; 
                         }
-                        var2 = !var2;   
+                        var1 = !var1; 
                     }
-                    var1 = !var1;    
+                    break; 
+                }catch (Exception e){ 
+                    JOptionPane.showMessageDialog(null, "¡Error! Revise la sintaxis.");
+                }
+            }
+            
+            case 4:{
+                try{
+                    boolean var1 = false;
+                    boolean var2 = false;
+                    boolean var3 = false;
+                    boolean var4 = false;
+
+                    areaTexto.append("Tabla Logica:\n\n");
+                    for(int l = 0; l<2; l++){ 
+                        for(int k = 0; k<2; k++){ 
+                            for(int i = 0; i<2; i++){ 
+                                for(int j = 0; j<2; j++){
+
+                                    areaTexto.append(""
+                                        +binario(var1)+"\t"+binario(var2)+"\t"+binario(var3)+
+                                        "\t"+binario(var4)+"\t"+binario(resolverCuatroVariables(var1,var2,var3,var4))+
+                                        "\n");
+
+                                    var4 = !var4; 
+                                }
+                                var3 = !var3;   
+                            }
+                            var2 = !var2;   
+                        }
+                        var1 = !var1;    
+                    }
+                }catch (Exception e){                    
+                    JOptionPane.showMessageDialog(null, "¡Error! Revise la sintaxis.");
                 }
                 break;
                 
             }  
             
             case 5:{
-                boolean var1 = false;
-                boolean var2 = false;
-                boolean var3 = false;
-                boolean var4 = false;
-                boolean var5 = false;
-                
-                areaTexto.append("Tabla Logica:\n\n");
-                for(int l = 0; l<2; l++){ 
-                    for(int k = 0; k<2; k++){ 
-                        for(int i = 0; i<2; i++){ 
-                            for(int j = 0; j<2; j++){
-                                for(int m = 0; m<2; m++){
-                                    areaTexto.append(""
-                                        +binario(var1)+"\t"+binario(var2)+"\t"+binario(var3)+
-                                        "\t"+binario(var4)+"\t"+binario(var5)+"\t"+binario(resolverCincoVaribles(var1,var2,var3,var4, var5))+
-                                        "\n");
-                                    
-                                    var5 = !var5; 
+                try{
+                    boolean var1 = false;
+                    boolean var2 = false;
+                    boolean var3 = false;
+                    boolean var4 = false;
+                    boolean var5 = false;
+
+                    areaTexto.append("Tabla Logica:\n\n");
+                    for(int l = 0; l<2; l++){ 
+                        for(int k = 0; k<2; k++){ 
+                            for(int i = 0; i<2; i++){ 
+                                for(int j = 0; j<2; j++){
+                                    for(int m = 0; m<2; m++){
+                                        areaTexto.append(""
+                                            +binario(var1)+"\t"+binario(var2)+"\t"+binario(var3)+
+                                            "\t"+binario(var4)+"\t"+binario(var5)+"\t"+binario(resolverCincoVaribles(var1,var2,var3,var4, var5))+
+                                            "\n");
+
+                                        var5 = !var5; 
+                                    }
+                                    var4 = !var4; 
                                 }
-                                var4 = !var4; 
+                                var3 = !var3;   
                             }
-                            var3 = !var3;   
+                            var2 = !var2;   
                         }
-                        var2 = !var2;   
+                        var1 = !var1;    
                     }
-                    var1 = !var1;    
+                }catch (Exception e){                    
+                    JOptionPane.showMessageDialog(null, "¡Error! Revise la sintaxis.");
                 }
                 break;
                 
             }  
             
             case 6:{
-                boolean var1 = false;
-                boolean var2 = false;
-                boolean var3 = false;
-                boolean var4 = false;
-                boolean var5 = false;
-                boolean var6 = false;
-                
-                areaTexto.append("Tabla Logica:\n\n");
-                for(int l = 0; l<2; l++){ 
-                    for(int k = 0; k<2; k++){ 
-                        for(int i = 0; i<2; i++){ 
-                            for(int j = 0; j<2; j++){
-                                for(int m = 0; m<2; m++){
-                                    for(int n = 0; n<2; n++){
-                                        areaTexto.append(""
-                                            +binario(var1)+"\t"+binario(var2)+"\t"+binario(var3)+
-                                            "\t"+binario(var4)+"\t"+binario(var5)+"\t"+binario(var6)+"\t"+
-                                                binario(resolverSeisVaribles(var1,var2,var3,var4, var5, var6))+
-                                            "\n");
-                                        var6 = !var6; 
+                try{
+                    boolean var1 = false;
+                    boolean var2 = false;
+                    boolean var3 = false;
+                    boolean var4 = false;
+                    boolean var5 = false;
+                    boolean var6 = false;
 
+                    areaTexto.append("Tabla Logica:\n\n");
+                    for(int l = 0; l<2; l++){ 
+                        for(int k = 0; k<2; k++){ 
+                            for(int i = 0; i<2; i++){ 
+                                for(int j = 0; j<2; j++){
+                                    for(int m = 0; m<2; m++){
+                                        for(int n = 0; n<2; n++){
+                                            areaTexto.append(""
+                                                +binario(var1)+"\t"+binario(var2)+"\t"+binario(var3)+
+                                                "\t"+binario(var4)+"\t"+binario(var5)+"\t"+binario(var6)+"\t"+
+                                                    binario(resolverSeisVaribles(var1,var2,var3,var4, var5, var6))+
+                                                "\n");
+                                            var6 = !var6; 
+
+                                        }
+                                        var5 = !var5; 
                                     }
-                                    var5 = !var5; 
+                                    var4 = !var4; 
                                 }
-                                var4 = !var4; 
+                                var3 = !var3;   
                             }
-                            var3 = !var3;   
+                            var2 = !var2;   
                         }
-                        var2 = !var2;   
+                        var1 = !var1;    
                     }
-                    var1 = !var1;    
+                }catch (Exception e){                    
+                    JOptionPane.showMessageDialog(null, "¡Error! Revise la sintaxis.");
                 }
                 break;
                 
@@ -375,11 +397,14 @@ public class Operador {
                 solucion.push(respuesta);
                 
             }else{
-                boolean operand2 = solucion.pop();
-                boolean operand1 = solucion.pop();
-
-                boolean respuesta = operar(simbolo, operand1, operand2);
-                solucion.push(respuesta);
+                try{
+                    boolean operand2 = solucion.pop();
+                    boolean operand1 = solucion.pop();
+                    boolean respuesta = operar(simbolo, operand1, operand2);
+                    solucion.push(respuesta);
+                    
+                }catch (Exception e){
+                }
             }
             
         }
@@ -395,10 +420,10 @@ public class Operador {
         for (int i = 0; i < expresionPrefija.length() - 1; i++) {
             char simbolo = expresionPrefija.charAt(i);
             if(!esOperador(simbolo)){
-                if(op1 == 'q'){
+                if(op1 == 'q' || op1 == simbolo){
                     op1 = simbolo;
                 
-                }else if(op2 == 'q'){
+                }else if(op2 == 'q' || op2 == simbolo){
                     op2 = simbolo;
                     
                 }
@@ -428,16 +453,21 @@ public class Operador {
                 
             
             } else if(simbolo == '¬'){
-                boolean operand1 = solucion.pop();
-                boolean respuesta = operar(simbolo, operand1, operand1);
-                solucion.push(respuesta);
-                
+                try{
+                    boolean operand1 = solucion.pop();
+                    boolean respuesta = operar(simbolo, operand1, operand1);
+                    solucion.push(respuesta);
+                }catch (Exception e){   
+                }
             }else{
-                boolean operand1 = solucion.pop();
-                boolean operand2 = solucion.pop();
-
-                boolean respuesta = operar(simbolo, operand1, operand2);
-                solucion.push(respuesta);
+                try{
+                    boolean operand1 = solucion.pop();
+                    boolean operand2 = solucion.pop();
+                    boolean respuesta = operar(simbolo, operand1, operand2);
+                    solucion.push(respuesta);
+                }catch (Exception e){
+                }
+                
             }
             
         }
@@ -453,13 +483,13 @@ public class Operador {
         for (int i = 0; i < expresionPrefija.length() - 1; i++) {
             char simbolo = expresionPrefija.charAt(i);
             if(!esOperador(simbolo)){
-                if(op1 == 'q'){
+                if(op1 == 'q' || op1 == simbolo){
                     op1 = simbolo;
                 
-                }else if(op2 == 'q'){
+                }else if(op2 == 'q' || op2 == simbolo){
                     op2 = simbolo;
                     
-                }else if(op3 == 'q'){
+                }else if(op3 == 'q' || op3 == simbolo){
                     op3 = simbolo;
                     
                 }
@@ -480,29 +510,34 @@ public class Operador {
                 }else if(op2 == 'q'){
                     op2 = simbolo;
                     solucion.push(var2);
-                    
+               
                 }else if(op2 == simbolo){
                     solucion.push(var2);
-                    
+               
                 }else if(op1 == 'q'){
                     op1 = simbolo;
                     solucion.push(var1);
-                    
+                  
                 }else if(op1 == simbolo){
                     solucion.push(var1);
+                    
                 }                
                 
             } else if(simbolo == '¬'){
-                boolean operand1 = solucion.pop();
-                boolean respuesta = operar(simbolo, operand1, operand1);
-                solucion.push(respuesta);
-                
+                try{
+                    boolean operand1 = solucion.pop();
+                    boolean respuesta = operar(simbolo, operand1, operand1);
+                    solucion.push(respuesta);
+                }catch (Exception e){    
+                }
             }else{
-                boolean operand1 = solucion.pop();
-                boolean operand2 = solucion.pop();
-
-                boolean respuesta = operar(simbolo, operand1, operand2);
-                solucion.push(respuesta);
+                try{
+                    boolean operand1 = solucion.pop();
+                    boolean operand2 = solucion.pop();
+                    boolean respuesta = operar(simbolo, operand1, operand2);
+                    solucion.push(respuesta);
+                }catch (Exception e){
+                }
             }
             
         }
@@ -519,16 +554,16 @@ public class Operador {
         for (int i = 0; i < expresionPrefija.length() - 1; i++) {
             char simbolo = expresionPrefija.charAt(i);
             if(!esOperador(simbolo)){
-                if(op1 == 'q'){
+                if(op1 == 'q' || op1 == simbolo){
                     op1 = simbolo;
                 
-                }else if(op2 == 'q'){
+                }else if(op2 == 'q' || op2 == simbolo){
                     op2 = simbolo;
                     
-                }else if(op3 == 'q'){
+                }else if(op3 == 'q' || op3 == simbolo){
                     op3 = simbolo;
                     
-                }else if(op4 == 'q'){
+                }else if(op4 == 'q' || op4 == simbolo){
                     op4 = simbolo;
                     
                 }
@@ -570,16 +605,21 @@ public class Operador {
                 }               
                             
             } else if(simbolo == '¬'){
-                boolean operand1 = solucion.pop();
-                boolean respuesta = operar(simbolo, operand1, operand1);
-                solucion.push(respuesta);
-                
+                try{
+                    boolean operand1 = solucion.pop();
+                    boolean respuesta = operar(simbolo, operand1, operand1);
+                    solucion.push(respuesta);
+                }catch (Exception e){
+                }
             }else{
-                boolean operand1 = solucion.pop();
-                boolean operand2 = solucion.pop();
-
-                boolean respuesta = operar(simbolo, operand1, operand2);
-                solucion.push(respuesta);
+                try{
+                    boolean operand1 = solucion.pop();
+                    boolean operand2 = solucion.pop();
+                    boolean respuesta = operar(simbolo, operand1, operand2);
+                    solucion.push(respuesta);
+                    
+                }catch (Exception e){
+                }
             }
             
         }
@@ -596,19 +636,19 @@ public class Operador {
         for (int i = 0; i < expresionPrefija.length() - 1; i++) {
             char simbolo = expresionPrefija.charAt(i);
             if(!esOperador(simbolo)){
-                if(op1 == 'q'){
+                if(op1 == 'q' || op1 == simbolo){
                     op1 = simbolo;
                 
-                }else if(op2 == 'q'){
+                }else if(op2 == 'q'|| op2 == simbolo){
                     op2 = simbolo;
                     
-                }else if(op3 == 'q'){
+                }else if(op3 == 'q' || op3 == simbolo){
                     op3 = simbolo;
                     
-                }else if(op4 == 'q'){
+                }else if(op4 == 'q' || op4 == simbolo){
                     op4 = simbolo;
                     
-                }else if(op5 == 'q'){
+                }else if(op5 == 'q' || op5 == simbolo){
                     op5 = simbolo;
                     
                 }
@@ -657,16 +697,22 @@ public class Operador {
                 }               
                             
             } else if(simbolo == '¬'){
-                boolean operand1 = solucion.pop();
-                boolean respuesta = operar(simbolo, operand1, operand1);
-                solucion.push(respuesta);
-                
+                try{
+                    boolean operand1 = solucion.pop();
+                    boolean respuesta = operar(simbolo, operand1, operand1);
+                    solucion.push(respuesta);
+                    
+                }catch (Exception e){
+                }
             }else{
-                boolean operand1 = solucion.pop();
-                boolean operand2 = solucion.pop();
-
-                boolean respuesta = operar(simbolo, operand1, operand2);
-                solucion.push(respuesta);
+                try{
+                    boolean operand1 = solucion.pop();
+                    boolean operand2 = solucion.pop();
+                    boolean respuesta = operar(simbolo, operand1, operand2);
+                    solucion.push(respuesta);
+                    
+                }catch (Exception e){
+                }
             }
             
         }
@@ -683,22 +729,22 @@ public class Operador {
         for (int i = 0; i < expresionPrefija.length() - 1; i++) {
             char simbolo = expresionPrefija.charAt(i);
             if(!esOperador(simbolo)){
-                if(op1 == 'q'){
+                if(op1 == 'q' || op1 == simbolo){
                     op1 = simbolo;
                 
-                }else if(op2 == 'q'){
+                }else if(op2 == 'q' || op2 == simbolo){
                     op2 = simbolo;
                     
-                }else if(op3 == 'q'){
+                }else if(op3 == 'q' || op3 == simbolo){
                     op3 = simbolo;
                     
-                }else if(op4 == 'q'){
+                }else if(op4 == 'q' || op4 == simbolo){
                     op4 = simbolo;
                     
-                }else if(op5 == 'q'){
+                }else if(op5 == 'q' || op5 == simbolo){
                     op5 = simbolo;
                     
-                }else if(op6 == 'q'){
+                }else if(op6 == 'q' || op6 == simbolo){
                     op6 = simbolo;
                     
                 }
@@ -754,16 +800,21 @@ public class Operador {
                 }               
                             
             } else if(simbolo == '¬'){
-                boolean operand1 = solucion.pop();
-                boolean respuesta = operar(simbolo, operand1, operand1);
-                solucion.push(respuesta);
-                
+                try{
+                    boolean operand1 = solucion.pop();
+                    boolean respuesta = operar(simbolo, operand1, operand1);
+                    solucion.push(respuesta);
+                }catch (Exception e){
+                }
             }else{
-                boolean operand1 = solucion.pop();
-                boolean operand2 = solucion.pop();
-
-                boolean respuesta = operar(simbolo, operand1, operand2);
-                solucion.push(respuesta);
+                try{
+                    boolean operand1 = solucion.pop();
+                    boolean operand2 = solucion.pop();
+                    boolean respuesta = operar(simbolo, operand1, operand2);
+                    solucion.push(respuesta);
+                    
+                }catch (Exception e){
+                }
             }
             
         }
@@ -783,7 +834,10 @@ public class Operador {
             case '∨' -> {
                 return or(valor1, valor2);
             }
-            case '↑', '↓' -> {
+            case '↑' ->{
+                return nand(valor1, valor2);
+            }
+            case '↓' -> {
                 return nor(valor1, valor2);
             }
             case '⊕' -> {
@@ -864,7 +918,11 @@ public class Operador {
                     if(parentesis.isEmpty()){
                         break;
                     }else{
-                        parentesis.pop();
+                        try{
+                            parentesis.pop();
+                        }catch (Exception e){
+                        
+                        }
                     }
                     cont--;
                     break;
@@ -878,20 +936,20 @@ public class Operador {
                     if(corchetes.isEmpty()){
                         break;
                     }else{
-                        corchetes.pop();
+                        try{
+                            corchetes.pop();
+                        }catch (Exception e){
+                        
+                        }
                     }
                     cont--;
                     break;
                     
                 default:
                     break;
-                
-            }
-            
-        } 
-        
+            }            
+        }         
         return ((parentesis.isEmpty() == true) && (corchetes.isEmpty() == true) && (cont == 0));
-        
     }
     
     
