@@ -326,12 +326,15 @@ public class Operador {
                         for(int i = 0; i<2; i++){ 
                             for(int j = 0; j<2; j++){
                                 for(int m = 0; m<2; m++){
-                                    areaTexto.append(""
-                                        +binario(var1)+"\t"+binario(var2)+"\t"+binario(var3)+
-                                        "\t"+binario(var4)+"\t"+binario(var5)+"\t"+binario(var6)+"\t"+
-                                            binario(resolverSeisVaribles(var1,var2,var3,var4, var5, var6))+
-                                        "\n");
-                                    
+                                    for(int n = 0; n<2; n++){
+                                        areaTexto.append(""
+                                            +binario(var1)+"\t"+binario(var2)+"\t"+binario(var3)+
+                                            "\t"+binario(var4)+"\t"+binario(var5)+"\t"+binario(var6)+"\t"+
+                                                binario(resolverSeisVaribles(var1,var2,var3,var4, var5, var6))+
+                                            "\n");
+                                        var6 = !var6; 
+
+                                    }
                                     var5 = !var5; 
                                 }
                                 var4 = !var4; 
@@ -704,6 +707,7 @@ public class Operador {
             if(!esOperador(simbolo)){
                 if(op6 == 'q'){
                     op6 = simbolo;
+                    solucion.push(var6);
                     
                 }else if(op6 == simbolo){
                     solucion.push(var6);
