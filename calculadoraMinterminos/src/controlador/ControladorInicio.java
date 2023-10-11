@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controlador;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -22,8 +24,13 @@ public class ControladorInicio {
         this.inicio = inicio;
         this.texto = "";
         this.operador = new Operador(inicio.txtTabla, inicio.lblCircuito);
-               
+        this.inicio.setIconImage(getIconImage());
+        
         //------------------------------------------ Agregar variables:
+        
+        
+        
+        
         this.inicio.btnA.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -227,7 +234,12 @@ public class ControladorInicio {
         this.inicio.txtTabla.setText("");
         this.inicio.txtTabla.setEditable(false);
     }
-     
+    
+    
+    public Image getIconImage(){
+        Image redValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("imagenes/Logo.png"));
+        return redValue;
+    }
         
     //------------------------------------------ Get & Set ------------------------------------
     
