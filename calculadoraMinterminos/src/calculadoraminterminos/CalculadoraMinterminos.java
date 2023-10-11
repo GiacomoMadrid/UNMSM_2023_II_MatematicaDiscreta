@@ -5,7 +5,9 @@
 package calculadoraminterminos;
 
 import controlador.ControladorInicio;
+import controlador.ControladorMensaje;
 import vista.frmInicio;
+import vista.frmMensaje;
 public class CalculadoraMinterminos {
 
     /**
@@ -14,8 +16,11 @@ public class CalculadoraMinterminos {
     public static void main(String[] args) {
         frmInicio inicio = new frmInicio();
         ControladorInicio contInicio = new ControladorInicio(inicio); 
-    
-        contInicio.iniciar();
+        
+        frmMensaje mensaje = new frmMensaje();
+        ControladorMensaje contMensaje = new ControladorMensaje(mensaje, contInicio);
+        contMensaje.iniciar();
+        
     }
     
   

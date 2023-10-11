@@ -94,8 +94,9 @@ public class frmInicio extends javax.swing.JFrame {
         txtTabla.setRows(5);
         jScrollPane1.setViewportView(txtTabla);
 
+        btnBorrar.setBackground(new java.awt.Color(0, 51, 153));
         btnBorrar.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        btnBorrar.setForeground(new java.awt.Color(0, 51, 153));
+        btnBorrar.setForeground(new java.awt.Color(255, 255, 255));
         btnBorrar.setText("←");
         btnBorrar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,8 +105,9 @@ public class frmInicio extends javax.swing.JFrame {
             }
         });
 
+        btnBorrarTodo.setBackground(new java.awt.Color(0, 51, 153));
         btnBorrarTodo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnBorrarTodo.setForeground(new java.awt.Color(0, 51, 153));
+        btnBorrarTodo.setForeground(new java.awt.Color(255, 255, 255));
         btnBorrarTodo.setText("C");
         btnBorrarTodo.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnBorrarTodo.addActionListener(new java.awt.event.ActionListener() {
@@ -447,8 +449,8 @@ public class frmInicio extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(lblCircuito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnBorrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBorrarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnResolver, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
