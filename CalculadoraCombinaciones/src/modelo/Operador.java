@@ -10,9 +10,9 @@ public class Operador {
     private int k;
     private int resultado;
     
-    public Operador(int n, int k){
-        this.n = n;
-        this.k = k;
+    public Operador(){
+        this.n = 0;
+        this.k = 0;
         this.resultado = 0;
     
     }

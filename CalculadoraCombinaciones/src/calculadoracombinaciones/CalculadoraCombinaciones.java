@@ -4,7 +4,9 @@
  */
 package calculadoracombinaciones;
 
+import controlador.ControladorInicio;
 import modelo.Operador;
+import vista.frmInicio;
 
 /**
  *
@@ -13,17 +15,13 @@ import modelo.Operador;
 public class CalculadoraCombinaciones {
 
     public static void main(String[] args) {
-        System.out.println("Hola, mundo");
+        frmInicio inicio = new frmInicio();
+        Operador operador = new Operador();
+        ControladorInicio contInicio = new ControladorInicio(inicio, operador);
+        
+        contInicio.iniciar();
         
         
-        Operador operador = new Operador(4, 3);
-        
-        int num = operador.factorial(4);
-        System.out.println("Hola");
-        
-        System.out.println(""+num);
-        System.out.println(""+operador.factorial(6));
-        System.out.println(""+operador.factorial(10));
     }
     
 }
