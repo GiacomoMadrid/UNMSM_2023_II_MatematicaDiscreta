@@ -44,6 +44,7 @@ public class frmInicio extends javax.swing.JFrame {
         btnVariacion1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Calculadora de Combinatorias");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 153), 3));
@@ -51,7 +52,7 @@ public class frmInicio extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Leelawadee", 0, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Calculadora de Combinaciones y Repeticiones");
+        jLabel1.setText("Calculadora de Combinatorias");
 
         txtN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 51, 153)));
 
