@@ -11,54 +11,32 @@ public class Operador {
     private int resultado;
     
     public Operador(){
-        this.n = 0;
-        this.k = 0;
-    
+            
     }
-    
     
     
     public int combinatoria(int a, int b){
-        int retorno = 1;
-        
-        if(a >= b){
-            retorno = factorial(a)/(factorial(b)*factorial(a-b));        
-        }
-                
-        return retorno;
+        return factorial(a)/(factorial(b)*factorial(a-b));
     }
     
     public int permutacion(int a, int b){
-        int retorno = 0;
-        
-        if(a >= b){
-            retorno = factorial(a)/(factorial(a-b));        
-        }
-                
-        return retorno;
+        return factorial(a)/(factorial(a-b));
     }
     
-    public int variacion2(int a, int b){
-                               
+    public int variacion2(int a, int b){                               
         return (int) Math.pow(a, b);
     }
     
     public int variacion1(int a, int b){
-        int retorno = 0;
-        
-        if(a >= b){
-            retorno = factorial(a)/(factorial(a-b));        
-        }
-                
-        return retorno;
+        return factorial(a)/(factorial(a-b));
     }
     
     public int factorial(int num){
-        if(num == 0 || num == 1){
-            return 1;
+        if(num > 1){
+            return (num * factorial(num-1));
             
         }else{
-            return num * factorial(num-1);        
+            return 1;      
         }        
     }
 
