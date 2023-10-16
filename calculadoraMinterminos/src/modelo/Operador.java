@@ -210,7 +210,7 @@ public class Operador {
     
     public void resolverPorCaso(JTextArea areaTexto, JTextArea lblVariable, JLabel lblFuncion){
         
-        for(int i = 0; i<5; i++){  
+        for(int i = 0; i<6; i++){  
             listaVariables.add('M');
         }
         
@@ -1004,7 +1004,7 @@ public class Operador {
         this.expresionPrefija = "";
         this.funcionInfija = "";
         this.numVariables = 0; 
-        for(int i = 4; i>=0; i--){  
+        for(int i = 5; i>=0; i--){  
             listaVariables.remove(i);
         }
     }
