@@ -13,14 +13,13 @@ public class Operador {
     public Operador(){
         this.n = 0;
         this.k = 0;
-        this.resultado = 0;
     
     }
     
     
     
     public int combinatoria(int a, int b){
-        int retorno = 0;
+        int retorno = 1;
         
         if(a >= b){
             retorno = factorial(a)/(factorial(b)*factorial(a-b));        

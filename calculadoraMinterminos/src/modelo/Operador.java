@@ -1,5 +1,6 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.Stack;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -13,12 +14,13 @@ public class Operador {
     private int numVariables;
     private String funcionInfija;
     private String expresionPrefija;
+    private ArrayList<Character> listaVariables;
     
     
     public Operador(JTextArea areaOperacion, JLabel label){
         this.funcionInfija = label.getText();
         this.expresionPrefija = "";
-        
+        this.listaVariables = new ArrayList();
     }
     
     //------------------------ Operadores Lógicos -------------------------
@@ -133,6 +135,14 @@ public class Operador {
             expresionPrefija = expresionInvertida; 
             
             JOptionPane.showMessageDialog(null,"Expresion Prefija:"+ expresionPrefija);
+            
+            //Regresar Funcion Infija a la normalidad    
+            expresionInvertida = "";
+            for(int i = funcionInfija.length()-1; i>=0; i--){
+                expresionInvertida += ""+funcionInfija.charAt(i);
+            }
+            funcionInfija = expresionInvertida;
+            
             return true;
                
         }      
@@ -198,18 +208,27 @@ public class Operador {
     
     //------------------------ Imprimir Tabla de Verdad -------------------------
     
-    public void resolverPorCaso(JTextArea areaTexto){
-              
+    public void resolverPorCaso(JTextArea areaTexto, JTextArea lblVariable, JLabel lblFuncion){
+        
+        for(int i = 0; i<5; i++){  
+            listaVariables.add('M');
+        }
+        
+        
         switch(numVariables){
             case 1:{
-                try{
+                try{                    
                     boolean var1 = false;
-                    areaTexto.append("Tabla Logica:\n\n");
-
-                    for(int i = 0; i<2; i++){ 
+                    agregarVariables(expresionPrefija);
+                    lblFuncion.setText("Tabla Logica: "+funcionInfija);
+                    lblVariable.setText(""+listaVariables.get(0)+"\tR");
+                    
+                    for(int i = 0; i<2; i++){  
                         areaTexto.append(""+binario(var1)+"\t"+binario(resolverUnaVariable(var1))+"\n");
                         var1 = !var1;
                     }
+                    
+                    
                 }catch (Exception e){
                     JOptionPane.showMessageDialog(null, "¡Error! Revise la sintaxis.");    
                 }
@@ -221,7 +240,9 @@ public class Operador {
                     boolean var1 = false;
                     boolean var2 = false;
 
-                    areaTexto.append("Tabla Logica:\n\n");
+                    agregarVariables(expresionPrefija);
+                    lblFuncion.setText("Tabla Logica: "+funcionInfija);
+                    lblVariable.setText(""+listaVariables.get(0)+"\t"+listaVariables.get(1)+"\tR");
 
                     for(int i = 0; i<2; i++){ 
                         for(int j = 0; j<2; j++){
@@ -234,6 +255,7 @@ public class Operador {
                         var1= !var1;  
 
                     }
+                    
                     break;
                 }catch (Exception e){  
                 }
@@ -245,7 +267,10 @@ public class Operador {
                     boolean var2 = false;
                     boolean var3 = false;
 
-                    areaTexto.append("Tabla Logica:\n\n");
+                    agregarVariables(expresionPrefija);
+                    lblFuncion.setText("Tabla Logica: "+funcionInfija);
+                    lblVariable.setText(""+listaVariables.get(0)+"\t"+listaVariables.get(1)+"\t"+listaVariables.get(2)+"\tR");
+                    
                     for(int k = 0; k<2; k++){ 
                         for(int i = 0; i<2; i++){ 
                             for(int j = 0; j<2; j++){
@@ -259,6 +284,7 @@ public class Operador {
                         }
                         var1 = !var1; 
                     }
+                    
                     break; 
                 }catch (Exception e){ 
                     JOptionPane.showMessageDialog(null, "¡Error! Revise la sintaxis.");
@@ -267,12 +293,17 @@ public class Operador {
             
             case 4:{
                 try{
+                    
                     boolean var1 = false;
                     boolean var2 = false;
                     boolean var3 = false;
                     boolean var4 = false;
 
-                    areaTexto.append("Tabla Logica:\n\n");
+                    agregarVariables(expresionPrefija);
+                    lblFuncion.setText("Tabla Logica: "+funcionInfija);
+                    lblVariable.setText(""+listaVariables.get(0)+"\t"+listaVariables.get(1)+"\t"+listaVariables.get(2)+
+                            "\t"+listaVariables.get(3)+"\tR");
+                    
                     for(int l = 0; l<2; l++){ 
                         for(int k = 0; k<2; k++){ 
                             for(int i = 0; i<2; i++){ 
@@ -291,6 +322,7 @@ public class Operador {
                         }
                         var1 = !var1;    
                     }
+                                                
                 }catch (Exception e){                    
                     JOptionPane.showMessageDialog(null, "¡Error! Revise la sintaxis.");
                 }
@@ -300,13 +332,18 @@ public class Operador {
             
             case 5:{
                 try{
+                    
                     boolean var1 = false;
                     boolean var2 = false;
                     boolean var3 = false;
                     boolean var4 = false;
                     boolean var5 = false;
 
-                    areaTexto.append("Tabla Logica:\n\n");
+                    agregarVariables(expresionPrefija);
+                    lblFuncion.setText("Tabla Logica: "+funcionInfija);
+                    lblVariable.setText(""+listaVariables.get(0)+"\t"+listaVariables.get(1)+"\t"+listaVariables.get(2)+
+                            "\t"+listaVariables.get(3)+"\t"+listaVariables.get(4)+"\tR");
+                    
                     for(int l = 0; l<2; l++){ 
                         for(int k = 0; k<2; k++){ 
                             for(int i = 0; i<2; i++){ 
@@ -327,6 +364,7 @@ public class Operador {
                         }
                         var1 = !var1;    
                     }
+                    
                 }catch (Exception e){                    
                     JOptionPane.showMessageDialog(null, "¡Error! Revise la sintaxis.");
                 }
@@ -342,6 +380,12 @@ public class Operador {
                     boolean var4 = false;
                     boolean var5 = false;
                     boolean var6 = false;
+                    
+                    agregarVariables(expresionPrefija);
+                    lblFuncion.setText("Tabla Logica: "+funcionInfija);
+                    lblVariable.setText(""+listaVariables.get(0)+"\t"+listaVariables.get(1)+"\t"+listaVariables.get(2)+
+                            "\t"+listaVariables.get(3)+"\t"+listaVariables.get(4)+"\t"+listaVariables.get(5)+"\tR");
+                    
 
                     areaTexto.append("Tabla Logica:\n\n");
                     for(int l = 0; l<2; l++){ 
@@ -368,6 +412,8 @@ public class Operador {
                         }
                         var1 = !var1;    
                     }
+                    
+                    
                 }catch (Exception e){                    
                     JOptionPane.showMessageDialog(null, "¡Error! Revise la sintaxis.");
                 }
@@ -389,6 +435,7 @@ public class Operador {
             char simbolo = expresionPrefija.charAt(i);
             
             if(!esOperador(simbolo)){
+                listaVariables.set(0, simbolo);
                 solucion.push(var1);
             
             } else if(simbolo == '¬'){
@@ -956,8 +1003,41 @@ public class Operador {
     public void reiniciarComponentes(){
         this.expresionPrefija = "";
         this.funcionInfija = "";
-        this.numVariables = 0;  
+        this.numVariables = 0; 
+        for(int i = 4; i>=0; i--){  
+            listaVariables.remove(i);
+        }
     }
+    
+    public void agregarVariables(String textoVar){
+        for(int i=0; i<textoVar.length(); i++){
+            char simbolo = textoVar.charAt(i);
+                        
+            if(!esOperador(simbolo)){
+                if(listaVariables.get(0) == 'M' || listaVariables.get(0) == simbolo){
+                    listaVariables.set(0, simbolo);
+                
+                }else if(listaVariables.get(1) == 'M' || listaVariables.get(1) == simbolo){
+                    listaVariables.set(1, simbolo);
+                    
+                }else if(listaVariables.get(2) == 'M' || listaVariables.get(2) == simbolo){
+                    listaVariables.set(2, simbolo);
+                    
+                }else if(listaVariables.get(3) == 'M' || listaVariables.get(3) == simbolo){
+                    listaVariables.set(3, simbolo);
+                    
+                }else if(listaVariables.get(4) == 'M' || listaVariables.get(4) == simbolo){
+                    listaVariables.set(4, simbolo);
+                    
+                }else if(listaVariables.get(5) == 'M' || listaVariables.get(5) == simbolo){
+                    listaVariables.set(5, simbolo);
+                    
+                }
+            }
+        }
+    
+    }
+            
     
     public int getNumVariables() {
         return numVariables;

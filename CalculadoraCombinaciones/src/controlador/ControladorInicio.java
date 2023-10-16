@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import vista.frmInicio;
 import modelo.Operador;
 /**
@@ -25,32 +26,48 @@ public class ControladorInicio {
         this.inicio.btnCombinatoria.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                inicio.txtResultado.setText(""+operador.combinatoria(Integer.parseInt(inicio.txtN.getText()), Integer.parseInt(inicio.txtK.getText())));
-                
+                try{
+                    int a = Integer.parseInt(inicio.txtN.getText());
+                    int b = Integer.parseInt(inicio.txtK.getText());
+                    inicio.txtResultado.setText(""+operador.combinatoria(a, b));
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error, revise la sintaxis.");
+                }
             }
         });
        
         this.inicio.btnPermutacion.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                inicio.txtResultado.setText(""+operador.permutacion(Integer.parseInt(inicio.txtN.getText()), Integer.parseInt(inicio.txtK.getText())));
-                
+                try{
+                    int a = Integer.parseInt(inicio.txtN.getText());
+                    int b = Integer.parseInt(inicio.txtK.getText());
+                    inicio.txtResultado.setText(""+operador.permutacion(a, b));
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error, revise la sintaxis.");
+                }
             }
         });
         
         this.inicio.btnVariacion1.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                inicio.txtResultado.setText(""+operador.variacion1(Integer.parseInt(inicio.txtN.getText()), Integer.parseInt(inicio.txtK.getText())));
-                
+                try{
+                    inicio.txtResultado.setText(""+operador.variacion1(Integer.parseInt(inicio.txtN.getText()), Integer.parseInt(inicio.txtK.getText())));
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error, revise la sintaxis.");
+                }
             }
         });
          
         this.inicio.btnVariacion2.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                inicio.txtResultado.setText(""+operador.variacion2(Integer.parseInt(inicio.txtN.getText()), Integer.parseInt(inicio.txtK.getText())));
-                
+                try{
+                    inicio.txtResultado.setText(""+operador.variacion2(Integer.parseInt(inicio.txtN.getText()), Integer.parseInt(inicio.txtK.getText())));
+                }catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error, revise la sintaxis.");
+                }
             }
         });
     }

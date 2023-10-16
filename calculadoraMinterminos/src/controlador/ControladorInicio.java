@@ -189,7 +189,7 @@ public class ControladorInicio {
 
                     operador.generarPrefija();                     
                     operador.contarVariables();
-                    operador.resolverPorCaso(inicio.txtTabla);                    
+                    operador.resolverPorCaso(inicio.txtTabla, inicio.lblVariables, inicio.lblExpresion);                    
                     inicio.txtTabla.append("\n");
  
                 }else{
