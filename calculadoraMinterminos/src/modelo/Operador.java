@@ -385,9 +385,7 @@ public class Operador {
                     lblFuncion.setText("Tabla Logica: "+funcionInfija);
                     lblVariable.setText(""+listaVariables.get(0)+"\t"+listaVariables.get(1)+"\t"+listaVariables.get(2)+
                             "\t"+listaVariables.get(3)+"\t"+listaVariables.get(4)+"\t"+listaVariables.get(5)+"\tR");
-                    
 
-                    areaTexto.append("Tabla Logica:\n\n");
                     for(int l = 0; l<2; l++){ 
                         for(int k = 0; k<2; k++){ 
                             for(int i = 0; i<2; i++){ 
